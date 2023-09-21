@@ -1,7 +1,66 @@
-docker run -d -p 9000:9000 --name sonarqube \
-  -v sonarqube-keystore:/opt/sonarqube/conf/ssl \
-  -e SONAR_WEB_HTTPS_ENABLE=true \
-  -e SONAR_WEB_HTTPS_PORT=9000 \
-  -e SONAR_WEB_HTTPS_KEYSTOREPASS=<your-keystore-passphrase> \
-  -e SONAR_WEB_HTTPS_KEYSTOREFILE=/opt/sonarqube/conf/ssl/keystore.jks \
-  sonarqube:latest
+docker run -d -p 9000:9000 --name sonarqubev2  sonarqube:latest
+
+
+https://dymensions60.dymensions.io:9001/siebel/app/callcenter/enu
+
+https://dymensions60.dymensions.io:9001/siebel/app/callcenter/enu
+
+D:\EMPLOYEES\Prajwal_Patojoshi\DDpipeline.exe testExecution D:\EMPLOYEES\Prajwal_Patojoshi\configwindows.json DEV "Automation Master Suite" SADMIN "Dymensions" Desktop_Chrome 002
+
+D:\EMPLOYEES\Prajwal_Patojoshi\DDpipeline.exe orchestrateTestExecution D:\EMPLOYEES\Prajwal_Patojoshi\configwindows.json DEV "Automation Master Suite" "9SIA-BSQUD" SADMIN "Dymensions" "Prajwal" "kacdgcFUYjxPCaZbktay0A50" Desktop_Chrome 005
+
+$configfile,$targetenv,$mastersuitename,$testuser,$testpwd,$sanitybrowser,$runid
+
+Githubtoken
+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
+
+Release_Info
+Flatten
+py DY_ReleaseJsonFlatten.py 23.7_UPDATE.htm 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
+py release_exporter_fix.py C:\temp\dy_grafana-main\ReleaseInfo\incremental.json
+
+
+py macpyscript.py convert_json K:\dytest
+py macpyscript.py env_subst_file K:\dytest
+py macpyscript.py generate_docker_compose_config K:\dytest
+py macpyscript.py docker_compose_wrapper K:\dytest
+py macpytesting.py docker_compose_wrapper K:\dytest --cleanup all
+
+perl -c D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\DDpipeline.pl && perl2exe -platform=Win64-5.26.3 -I D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\lib -I D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\site_lib -o D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\pipeline D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\DDpipeline.pl
+
+
+-platform=Windows
+
+C:\Siebel\DISA\jre\bin\java.exe -jar C:\Siebel\DISA\DesktopIntSiebelAgent\plugins\SiebelTestAutomation\Framework\KWDPresetup.jar /d C:\Sibel\DISA /j $testuser /g "$testpwd" /r https://grc-dda-sma.dev.desjardins.com:443/siebel/ 
+
+
+perl -c D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\DDpipeline.pl && perl2exe -platform=Win64-5.26.3 -I D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\lib -I D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\site_lib -o D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\DDpipeline.exe D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\DDpipeline.pl
+
+perl -c D:\EMPLOYEES\Prajwal_Patojoshi\desjardins\dy-cicd-src-desjardins-master\DDpipeline.pl && perl2exe -platform=Win64-5.26.3 -I D:\EMPLOYEES\Prajwal_Patojoshi\desjardins\dy-cicd-src-desjardins-master\lib -I D:\EMPLOYEES\Prajwal_Patojoshi\desjardins\dy-cicd-src-desjardins-master\site_lib -o D:\EMPLOYEES\Prajwal_Patojoshi\desjardins\dy-cicd-src-desjardins-master\DDpipeline.exe D:\EMPLOYEES\Prajwal_Patojoshi\desjardins\dy-cicd-src-desjardins-master\DDpipeline.pl
+
+perl -c D:\EMPLOYEES\Prajwal_Patojoshi\Des\dy-cicd-src-desjardins-master\DDpipeline.pl && perl2exe -platform=Win64-5.26.3 -I D:\EMPLOYEES\Prajwal_Patojoshi\Des\dy-cicd-src-desjardins-master\lib -I D:\EMPLOYEES\Prajwal_Patojoshi\Des\dy-cicd-src-desjardins-master\site_lib -o D:\EMPLOYEES\Prajwal_Patojoshi\Des\dy-cicd-src-desjardins-master\pipeline.exe D:\EMPLOYEES\Prajwal_Patojoshi\Des\dy-cicd-src-desjardins-master\DDpipeline.pl
+
+Linux
+perl -c D:\EMPLOYEES\Prajwal_Patojoshi\dy-cicd-src-inhouse-master\pipeline.pl && perl2exe -I D:\EMPLOYEES\Prajwal_Patojoshi\dy-cicd-src-inhouse-master\lib -I D:\EMPLOYEES\Prajwal_Patojoshi\dy-cicd-src-inhouse-master\site_lib -o D:\EMPLOYEES\Prajwal_Patojoshi\dy-cicd-src-inhouse-master\pipelinetest D:\EMPLOYEES\Prajwal_Patojoshi\dy-cicd-src-inhouse-master\pipeline.pl
+
+
+Githubtoken
+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
+
+perl -c D:\EMPLOYEES\Prajwal_Patojoshi\dy-cicd-src-inhouse-master\pipeline.pl && perl2exe -I D:\EMPLOYEES\Prajwal_Patojoshi\dy-cicd-src-inhouse-master\lib -I D:\EMPLOYEES\Prajwal_Patojoshi\dy-cicd-src-inhouse-master\site_lib -o D:\EMPLOYEES\Prajwal_Patojoshi\dy-cicd-src-inhouse-master\pipelinetest D:\EMPLOYEES\Prajwal_Patojoshi\dy-cicd-src-inhouse-master\pipeline.pl
+
+py DY_ReleaseJsonFlatten.py 21.5_23.5.htm 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
+
+sonar-scanner.bat -D"sonar.projectKey=SQL_test" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=sqp_ec3237f41b186a67355f1a6168458bfea4ed2f20"
+
+  docker run --rm -e SONAR_HOST_URL="http://192.168.11.122:9000" -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=CICD-009 -Dsonar.inclusions=file:/usr/src/JS/Demo1.js,file:/usr/src/CSS/Demo.css" -e SONAR_LOGIN="sqp_e800882e745309b6556adbd78964172dc9641c21" -v "/home/dymensions/Girishma/siebel_cicd:/usr/src" sonarsource/sonar-scanner-cli
+
+dy_test_token  192.168.11.110
+sqa_cfb3aedec535bf407297b096a4afdc65cae5f637
+
+docker run --rm -e SONAR_HOST_URL="http://192.168.11.110:9000" -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=dy_test"  -e SONAR_LOGIN="sqa_cfb3aedec535bf407297b096a4afdc65cae5f637" -v "D:\sonarscan\:/usr/src" sonarsource/sonar-scanner-cli
+
+
+
+
+
