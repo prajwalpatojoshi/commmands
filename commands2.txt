@@ -70,3 +70,5 @@ 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
 srvrmgr /e siebel /g devbgw0:9111 /u sadmin /p Dymensions
 
 docker ps -a --format "{{.Names}}" | Where-Object { $_ -like "*config*" } | ForEach-Object { docker restart $_ }
+
+docker restart (docker ps -q -f "name=*config")
