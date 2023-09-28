@@ -1,0 +1,418 @@
+networks:
+  dy-net-19:
+    name: dy-net-19
+
+services:
+
+  devbai0:
+    container_name: devbai0
+    environment:
+      - DY_AI_HOSTNAME=devbai0.dymensions.io
+      - DY_SES_HOSTNAME=devbses0.dymensions.io
+      - DY_GW_HOSTNAME=devbgw0.dymensions.io
+      - DY_INDUSTRY=AIPROFILE2
+      - DY_AIINDUSTRY=AIPROFILE1
+      - SETTINGSFILE=/home/siebel/autoinstall/siebelsettings.txt
+    extra_hosts:
+      - demopdb.dymensions.io:192.168.11.177
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+    hostname: devbai0.dymensions.io
+    image: dymensions/siebel:ip23ps9ai
+    labels:
+      - dy.runid=20230926055210
+    networks:
+      - dy-net-19
+    ports:
+      - 9001:9001
+    volumes:
+      - K:\dytest\siebelfs\siebelfs1:/home/siebel/fs
+      - K:\dytest\siebelconfig\lb:/home/siebel/lb
+      - K:\dytest\siebelconfig\autoinstall:/home/siebel/autoinstall
+      - K:\dytest\siebellogs\siebellogs20230926055210\autoinstallLogs:/home/siebel/logs/autoinstallLogs
+      - K:\dytest\siebellogs\siebellogs20230926055210\ai\aicfgtoollogs:/home/siebel/ai/cfgtoollogs/cfg
+      - K:\dytest\siebellogs\siebellogs20230926055210\ai\aitomcatlogs:/home/siebel/ai/applicationcontainer_external/logs
+      - K:\dytest\siebelconfig\demo\files:/home/siebel/ai/applicationcontainer_external/siebelwebroot/files/custom
+      - K:\dytest\siebelconfig\demo\images:/home/siebel/ai/applicationcontainer_external/siebelwebroot/images/custom
+      - K:\dytest\siebelconfig\demo\scripts:/home/siebel/ai/applicationcontainer_external/siebelwebroot/scripts/siebel/custom
+      - K:\dytest\siebelconfig\.skipconfig:/tmp/.skipconfig
+
+  devbai1:
+    container_name: devbai1
+    environment:
+      - DY_AI_HOSTNAME=devbai0.dymensions.io
+      - DY_SES_HOSTNAME=devbses0.dymensions.io
+      - DY_GW_HOSTNAME=devbgw0.dymensions.io
+      - DY_INDUSTRY=AIPROFILE2
+      - DY_AIINDUSTRY=AIPROFILE1
+      - SETTINGSFILE=/home/siebel/autoinstall/siebelsettings.txt
+    extra_hosts:
+      - demopdb.dymensions.io:192.168.11.177
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+    hostname: devbai1.dymensions.io
+    image: dymensions/siebel:ip23ps9ai
+    labels:
+      - dy.runid=20230926055210
+    networks:
+      - dy-net-19
+    ports:
+      - 9002:9001
+    volumes:
+      - K:\dytest\siebelfs\siebelfs1:/home/siebel/fs
+      - K:\dytest\siebelconfig\lb:/home/siebel/lb
+      - K:\dytest\siebelconfig\autoinstall:/home/siebel/autoinstall
+      - K:\dytest\siebellogs\siebellogs20230926055210\autoinstallLogs:/home/siebel/logs/autoinstallLogs
+      - K:\dytest\siebellogs\siebellogs20230926055210\ai1\aicfgtoollogs:/home/siebel/ai/cfgtoollogs/cfg
+      - K:\dytest\siebellogs\siebellogs20230926055210\ai1\aitomcatlogs:/home/siebel/ai/applicationcontainer_external/logs
+      - K:\dytest\siebelconfig\demo\files:/home/siebel/ai/applicationcontainer_external/siebelwebroot/files/custom
+      - K:\dytest\siebelconfig\demo\images:/home/siebel/ai/applicationcontainer_external/siebelwebroot/images/custom
+      - K:\dytest\siebelconfig\demo\scripts:/home/siebel/ai/applicationcontainer_external/siebelwebroot/scripts/siebel/custom
+      - K:\dytest\siebelconfig\.skipconfig:/tmp/.skipconfig
+
+  devbai2:
+    container_name: devbai2
+    environment:
+      - DY_AI_HOSTNAME=devbai0.dymensions.io
+      - DY_SES_HOSTNAME=devbses0.dymensions.io
+      - DY_GW_HOSTNAME=devbgw0.dymensions.io
+      - DY_INDUSTRY=AIPROFILE2
+      - DY_AIINDUSTRY=AIPROFILE1
+      - SETTINGSFILE=/home/siebel/autoinstall/siebelsettings.txt
+    extra_hosts:
+      - demopdb.dymensions.io:192.168.11.177
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+    hostname: devbai2.dymensions.io
+    image: dymensions/siebel:ip23ps9ai
+    labels:
+      - dy.runid=20230926055210
+    networks:
+      - dy-net-19
+    ports:
+      - 9005:9001
+    volumes:
+      - K:\dytest\siebelfs\siebelfs1:/home/siebel/fs
+      - K:\dytest\siebelconfig\lb:/home/siebel/lb
+      - K:\dytest\siebelconfig\autoinstall:/home/siebel/autoinstall
+      - K:\dytest\siebellogs\siebellogs20230926055210\autoinstallLogs:/home/siebel/logs/autoinstallLogs
+      - K:\dytest\siebellogs\siebellogs20230926055210\ai2\aicfgtoollogs:/home/siebel/ai/cfgtoollogs/cfg
+      - K:\dytest\siebellogs\siebellogs20230926055210\ai2\aitomcatlogs:/home/siebel/ai/applicationcontainer_external/logs
+      - K:\dytest\siebelconfig\demo\files:/home/siebel/ai/applicationcontainer_external/siebelwebroot/files/custom
+      - K:\dytest\siebelconfig\demo\images:/home/siebel/ai/applicationcontainer_external/siebelwebroot/images/custom
+      - K:\dytest\siebelconfig\demo\scripts:/home/siebel/ai/applicationcontainer_external/siebelwebroot/scripts/siebel/custom
+      - K:\dytest\siebelconfig\kafka\aieventconfig.txt:/home/siebel/ai/applicationcontainer_external/webapps/aieventconfig.txt
+      - K:\dytest\siebelconfig\.skipconfig:/tmp/.skipconfig
+
+  devbconfig0:
+
+    container_name: devbconfig0
+
+    depends_on:
+      devbai0:
+        condition: service_started
+      devbai1:
+        condition: service_started
+      devbai2:
+        condition: service_started
+      devbgw0:
+        condition: service_started
+      devbgw1:
+        condition: service_started
+      devbgw2:
+        condition: service_started
+      devbses0:
+        condition: service_started
+      devbses1:
+        condition: service_started
+      kafka:
+        condition: service_started
+      zookeeper:
+        condition: service_started
+
+    environment:
+      - DY_AI_HOSTNAME=devbai0.dymensions.io
+      - DY_SES_HOSTNAME=devbses0.dymensions.io
+      - DY_GW_HOSTNAME=devbgw0.dymensions.io
+      - DY_INDUSTRY=AIPROFILE2
+      - DY_AIINDUSTRY=AIPROFILE1
+      - SETTINGSFILE=/home/siebel/autoinstall/siebelsettings.txt
+
+    extra_hosts:
+      - demopdb.dymensions.io:192.168.11.177
+
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+
+    hostname: devbconfig0.dymensions.io
+
+    image: dymensions/siebel:ip23ps9ses
+
+    labels:
+      - dy.runid=20230926055210
+
+    networks:
+      - dy-net-19
+
+    ports:
+      - 9019:9001
+
+    volumes:
+      - K:\dytest\siebelfs\siebelfs1:/home/siebel/fs
+      - K:\dytest\siebelconfig\lb:/home/siebel/lb
+      - K:\dytest\siebelconfig\autoinstall:/home/siebel/autoinstall
+      - K:\dytest\siebellogs\siebellogs20230926055210\autoinstallLogs:/home/siebel/logs/autoinstallLogs
+
+  devbgw0:
+    container_name: devbgw0
+    environment:
+      - DY_AI_HOSTNAME=devbai0.dymensions.io
+      - DY_SES_HOSTNAME=devbses0.dymensions.io
+      - DY_GW_HOSTNAME=devbgw0.dymensions.io
+      - DY_INDUSTRY=AIPROFILE2
+      - DY_AIINDUSTRY=AIPROFILE1
+      - SETTINGSFILE=/home/siebel/autoinstall/siebelsettings.txt
+    extra_hosts:
+      - demopdb.dymensions.io:192.168.11.177
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+    hostname: devbgw0.dymensions.io
+    image: dymensions/siebel:ip23ps9gw
+    labels:
+      - dy.runid=20230926055210
+    networks:
+      - dy-net-19
+    volumes:
+      - K:\dytest\siebelfs\siebelfs1:/home/siebel/fs
+      - K:\dytest\siebelconfig\lb:/home/siebel/lb
+      - K:\dytest\siebelconfig\autoinstall:/home/siebel/autoinstall
+      - K:\dytest\siebellogs\siebellogs20230926055210\autoinstallLogs:/home/siebel/logs/autoinstallLogs
+      - K:\dytest\siebellogs\siebellogs20230926055210\gtwylogs:/home/siebel/gw/gtwysrvr/log
+      - K:\dytest\siebellogs\siebellogs20230926055210\cgcfgtoollogs:/home/siebel/gw/cfgtoollogs/cfg
+      - K:\dytest\siebellogs\siebellogs20230926055210\cgtomcatlogs:/home/siebel/gw/applicationcontainer_internal/logs
+      - K:\dytest\siebellogs\siebellogs20230926055210\kwd:/home/siebel/ses/siebsrvr/kwd
+      - K:\dytest\siebellogs\siebellogs20230926055210\upt:/home/siebel/ses/siebsrvr/upt
+      - K:\dytest\siebellogs\siebellogs20230926055210\xsd:/home/siebel/ses/siebsrvr/xsd
+      - K:\dytest\siebelconfig\.skipconfig:/tmp/.skipconfig
+
+  devbgw1:
+    container_name: devbgw1
+    environment:
+      - DY_AI_HOSTNAME=devbai0.dymensions.io
+      - DY_SES_HOSTNAME=devbses0.dymensions.io
+      - DY_GW_HOSTNAME=devbgw0.dymensions.io
+      - DY_INDUSTRY=AIPROFILE2
+      - DY_AIINDUSTRY=AIPROFILE1
+      - SETTINGSFILE=/home/siebel/autoinstall/siebelsettings.txt
+    extra_hosts:
+      - demopdb.dymensions.io:192.168.11.177
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+    hostname: devbgw1.dymensions.io
+    image: dymensions/siebel:ip23ps9gw
+    labels:
+      - dy.runid=20230926055210
+    networks:
+      - dy-net-19
+    volumes:
+      - K:\dytest\siebelfs\siebelfs1:/home/siebel/fs
+      - K:\dytest\siebelconfig\lb:/home/siebel/lb
+      - K:\dytest\siebelconfig\autoinstall:/home/siebel/autoinstall
+      - K:\dytest\siebellogs\siebellogs20230926055210\autoinstallLogs:/home/siebel/logs/autoinstallLogs
+      - K:\dytest\siebellogs\siebellogs20230926055210\gtwylogs:/home/siebel/gw/gtwysrvr/log
+      - K:\dytest\siebellogs\siebellogs20230926055210\cgcfgtoollogs:/home/siebel/gw/cfgtoollogs/cfg
+      - K:\dytest\siebellogs\siebellogs20230926055210\cgtomcatlogs:/home/siebel/gw/applicationcontainer_internal/logs
+      - K:\dytest\siebellogs\siebellogs20230926055210\kwd:/home/siebel/ses/siebsrvr/kwd
+      - K:\dytest\siebellogs\siebellogs20230926055210\upt:/home/siebel/ses/siebsrvr/upt
+      - K:\dytest\siebellogs\siebellogs20230926055210\xsd:/home/siebel/ses/siebsrvr/xsd
+      - K:\dytest\siebelconfig\.skipconfig:/tmp/.skipconfig
+
+  devbgw2:
+    container_name: devbgw2
+    environment:
+      - DY_AI_HOSTNAME=devbai0.dymensions.io
+      - DY_SES_HOSTNAME=devbses0.dymensions.io
+      - DY_GW_HOSTNAME=devbgw0.dymensions.io
+      - DY_INDUSTRY=AIPROFILE2
+      - DY_AIINDUSTRY=AIPROFILE1
+      - SETTINGSFILE=/home/siebel/autoinstall/siebelsettings.txt
+    extra_hosts:
+      - demopdb.dymensions.io:192.168.11.177
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+    hostname: devbgw2.dymensions.io
+    image: dymensions/siebel:ip23ps9gw
+    labels:
+      - dy.runid=20230926055210
+    networks:
+      - dy-net-19
+    volumes:
+      - K:\dytest\siebelfs\siebelfs1:/home/siebel/fs
+      - K:\dytest\siebelconfig\lb:/home/siebel/lb
+      - K:\dytest\siebelconfig\autoinstall:/home/siebel/autoinstall
+      - K:\dytest\siebellogs\siebellogs20230926055210\autoinstallLogs:/home/siebel/logs/autoinstallLogs
+      - K:\dytest\siebellogs\siebellogs20230926055210\gtwylogs:/home/siebel/gw/gtwysrvr/log
+      - K:\dytest\siebellogs\siebellogs20230926055210\cgcfgtoollogs:/home/siebel/gw/cfgtoollogs/cfg
+      - K:\dytest\siebellogs\siebellogs20230926055210\cgtomcatlogs:/home/siebel/gw/applicationcontainer_internal/logs
+      - K:\dytest\siebellogs\siebellogs20230926055210\kwd:/home/siebel/ses/siebsrvr/kwd
+      - K:\dytest\siebellogs\siebellogs20230926055210\upt:/home/siebel/ses/siebsrvr/upt
+      - K:\dytest\siebellogs\siebellogs20230926055210\xsd:/home/siebel/ses/siebsrvr/xsd
+      - K:\dytest\siebelconfig\.skipconfig:/tmp/.skipconfig
+
+  devbses0:
+    container_name: devbses0
+    environment:
+      - DY_AI_HOSTNAME=devbai0.dymensions.io
+      - DY_SES_HOSTNAME=devbses0.dymensions.io
+      - DY_GW_HOSTNAME=devbgw0.dymensions.io
+      - DY_INDUSTRY=AIPROFILE2
+      - DY_AIINDUSTRY=AIPROFILE1
+      - SETTINGSFILE=/home/siebel/autoinstall/siebelsettings.txt
+    extra_hosts:
+      - demopdb.dymensions.io:192.168.11.177
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+    hostname: devbses0.dymensions.io
+    image: dymensions/siebel:ip23ps9ses
+    labels:
+      - dy.runid=20230926055210
+    networks:
+      - dy-net-19
+    ports:
+      - 9011:9011
+    volumes:
+      - K:\dytest\siebelfs\siebelfs1:/home/siebel/fs
+      - K:\dytest\siebelconfig\lb:/home/siebel/lb
+      - K:\dytest\siebelconfig\autoinstall:/home/siebel/autoinstall
+      - K:\dytest\siebellogs\siebellogs20230926055210\autoinstallLogs:/home/siebel/logs/autoinstallLogs
+      - K:\dytest\siebellogs\siebellogs20230926055210\ses\sescfgtoollogs:/home/siebel/ses/cfgtoollogs/cfg
+      - K:\dytest\siebellogs\siebellogs20230926055210\ses\seslogarchive:/home/siebel/ses/siebsrvr/enterprises/siebel/sdevbses0/logarchive
+      - K:\dytest\siebellogs\siebellogs20230926055210\ses\seslogs:/home/siebel/ses/siebsrvr/enterprises/siebel/sdevbses0/log
+      - K:\dytest\siebellogs\siebellogs20230926055210\ses\sestomcatlogs:/home/siebel/ses/applicationcontainer_internal/logs
+      - K:\dytest\siebelconfig\demo\dbdata:/home/siebel/demo
+      - K:\dytest\siebelconfig\kafka\eventpayloadconfig.txt:/home/siebel/ses/siebsrvr/eventconfig/eventpayloadconfig.txt
+      - K:\dytest\siebellogs\siebellogs20230926055210\kwd:/home/siebel/ses/siebsrvr/kwd
+      - K:\dytest\siebellogs\siebellogs20230926055210\upt:/home/siebel/ses/siebsrvr/upt
+      - K:\dytest\siebellogs\siebellogs20230926055210\xsd:/home/siebel/ses/siebsrvr/xsd
+      - K:\dytest\siebelconfig\.skipconfig:/tmp/.skipconfig
+
+  devbses1:
+    container_name: devbses1
+    environment:
+      - DY_AI_HOSTNAME=devbai0.dymensions.io
+      - DY_SES_HOSTNAME=devbses0.dymensions.io
+      - DY_GW_HOSTNAME=devbgw0.dymensions.io
+      - DY_INDUSTRY=AIPROFILE2
+      - DY_AIINDUSTRY=AIPROFILE1
+      - SETTINGSFILE=/home/siebel/autoinstall/siebelsettings.txt
+    extra_hosts:
+      - demopdb.dymensions.io:192.168.11.177
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+    hostname: devbses1.dymensions.io
+    image: dymensions/siebel:ip23ps9ses
+    labels:
+      - dy.runid=20230926055210
+    networks:
+      - dy-net-19
+    ports:
+      - 9018:9011
+    volumes:
+      - K:\dytest\siebelfs\siebelfs1:/home/siebel/fs
+      - K:\dytest\siebelconfig\lb:/home/siebel/lb
+      - K:\dytest\siebelconfig\autoinstall:/home/siebel/autoinstall
+      - K:\dytest\siebellogs\siebellogs20230926055210\autoinstallLogs:/home/siebel/logs/autoinstallLogs
+      - K:\dytest\siebellogs\siebellogs20230926055210\ses1\sescfgtoollogs:/home/siebel/ses/cfgtoollogs/cfg
+      - K:\dytest\siebellogs\siebellogs20230926055210\ses1\seslogarchive:/home/siebel/ses/siebsrvr/enterprises/siebel/sdevbses1/logarchive
+      - K:\dytest\siebellogs\siebellogs20230926055210\ses1\seslogs:/home/siebel/ses/siebsrvr/enterprises/siebel/sdevbses1/log
+      - K:\dytest\siebellogs\siebellogs20230926055210\ses1\sestomcatlogs:/home/siebel/ses/applicationcontainer_internal/logs
+      - K:\dytest\siebelconfig\demo\dbdata:/home/siebel/demo
+      - K:\dytest\siebelconfig\kafka\eventpayloadconfig.txt:/home/siebel/ses/siebsrvr/eventconfig/eventpayloadconfig.txt
+      - K:\dytest\siebellogs\siebellogs20230926055210\kwd:/home/siebel/ses/siebsrvr/kwd
+      - K:\dytest\siebellogs\siebellogs20230926055210\upt:/home/siebel/ses/siebsrvr/upt
+      - K:\dytest\siebellogs\siebellogs20230926055210\xsd:/home/siebel/ses/siebsrvr/xsd
+      - K:\dytest\siebelconfig\.skipconfig:/tmp/.skipconfig
+
+  kafka:
+    container_name: kafka
+    environment:
+      - KAFKA_SSL_KEYSTORE_FILENAME=dymensions_io.jks
+      - KAFKA_ADVERTISED_LISTENERS=SSL://kafka.dymensions.io:9092
+      - KAFKA_LISTENERS=SSL://kafka.dymensions.io:9092
+      - KAFKA_SSL_KEY_CREDENTIALS=AbCdDkGp2017
+      - KAFKA_SSL_KEYSTORE_CREDENTIALS=AbCdDkGp2017
+      - KAFKA_HEAP_OPTS=-Xms512m -Xmx1g
+      - KAFKA_INTER_BROKER_LISTENER_NAME=SSL
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+    hostname: kafka.dymensions.io
+    image: confluentinc/cp-kafka
+    labels:
+      - dy.runid=20230926055210
+    networks:
+      - dy-net-19
+    ports:
+      - 9092:9092
+    volumes:
+      - K:\dytest\siebelconfig\kafka\kafkaconfig\secrets:/etc/kafka/secrets
+      - K:\dytest\siebelconfig\kafka\kafkaconfig:/etc/kafka
+
+  zookeeper:
+    container_name: zookeeper
+    healthcheck:
+      interval: 30s
+      retries: 450
+      timeout: 30s
+    image: zookeeper
+    labels:
+      - dy.runid=20230926055210
+    networks:
+      - dy-net-19
+    ports:
+      - 2181:2181
+
+  hcheck:
+    image: alpine
+    container_name: hcheck
+    depends_on:
+      devbses0:
+        condition: service_healthy
+      devbses1:
+        condition: service_healthy
+      devbai0:
+        condition: service_healthy
+      devbai1:
+        condition: service_healthy
+      devbai2:
+        condition: service_healthy
+      devbgw0:
+        condition: service_healthy
+      devbgw1:
+        condition: service_healthy
+      devbgw2:
+        condition: service_healthy
+    command: ["sh","-c","sleep 300 && exit 0"]
+
+version: '3'
