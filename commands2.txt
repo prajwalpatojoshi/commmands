@@ -68,3 +68,5 @@ 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
 
 
 srvrmgr /e siebel /g devbgw0:9111 /u sadmin /p Dymensions
+
+docker ps -a --filter "name=*config*" --format "{{.Names}}" | xargs -I {} docker restart {}
