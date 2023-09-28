@@ -20,11 +20,11 @@ py DY_ReleaseJsonFlatten.py 23.7_UPDATE.htm ghp_tbNpaejTKOV1jhxA9uei1QxrXghzMt1M
 py release_exporter_fix.py C:\temp\dy_grafana-main\ReleaseInfo\incremental.json
 
 
-py macpyscript.py convert_json K:\dytest
-py macpyscript.py env_subst_file K:\dytest
-py macpyscript.py generate_docker_compose_config K:\dytest
-py macpyscript.py docker_compose_wrapper K:\dytest
-py macpytesting.py docker_compose_wrapper K:\dytest --cleanup all
+py Siebel_Util_Pro.py convert_json K:\dytest 23.9
+py Siebel_Util_Pro.py env_subst_file K:\dytest 23.9
+py Siebel_Util_Pro.py generate_docker_compose_config K:\dytest 23.9
+py Siebel_Util_Pro.py docker_compose_wrapper K:\dytest 23.9
+py Siebel_Util_Pro.py docker_compose_wrapper K:\dytest 23.9 --cleanup all 		
 
 perl -c D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\DDpipeline.pl && perl2exe -platform=Win64-5.26.3 -I D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\lib -I D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\site_lib -o D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\pipeline D:\desjardins\dy-cicd-src-desjardins-master\dy-cicd-src-desjardins-master\DDpipeline.pl
 
@@ -60,9 +60,11 @@ sqa_cfb3aedec535bf407297b096a4afdc65cae5f637
 
 docker run --rm -e SONAR_HOST_URL="http://192.168.11.110:9000" -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=dy_test"  -e SONAR_LOGIN="sqa_cfb3aedec535bf407297b096a4afdc65cae5f637" -v "D:\sonarscan\:/usr/src" sonarsource/sonar-scanner-cli
 
+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
+
+git clone https://prajwalpatojoshi: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@github.com/Dymensions/dy-siebel-ip17.git
+
+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
 
 
-
-
-
-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
+srvrmgr /e siebel /g devbgw0:9111 /u sadmin /p Dymensions
