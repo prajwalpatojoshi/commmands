@@ -75,3 +75,5 @@ docker restart (docker ps -q -f "name=*config")
 
 docker ps --format "{{.Names}}" | findstr /C:"*config0" /B
 
+for /f %i in ('docker ps -q --filter "name=config0"') do docker restart %i
+
