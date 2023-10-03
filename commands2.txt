@@ -77,3 +77,5 @@ docker ps --format "{{.Names}}" | findstr /C:"*config0" /B
 
 for /f %i in ('docker ps -q --filter "name=config0"') do docker restart %i
 
+for /f %i in ('docker ps --format "{{.Names}}" --filter "name=config0"') do docker-compose -f "K:\dytest\23.9\docker-compose.yml" restart %i
+
