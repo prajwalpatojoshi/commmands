@@ -143,7 +143,8 @@ def generate_docker_compose_config(input_path, yaml_file_path,HOMEDIR,patchsetnu
     yaml_cont["services"]={}
 
 
-
+    configurefile=json_data["services"]["create"]["siebel"]["CONFIG"]["DY_CONFIG_HOSTNAME"]
+    #'/home/siebel/logs/autoinstallLogs/.devbconfig0.dymensions.io.configured'
     basedir=json_data["services"]["service_genric"]["DY_BASEDIR"]
     network=json_data["services"]["service_genric"]["DY_NETWORK_NAME"]
     for x in server:
@@ -245,6 +246,13 @@ def generate_docker_compose_config(input_path, yaml_file_path,HOMEDIR,patchsetnu
                     yaml_cont["services"][container_name]["volumes"].append(basedir+slash+"siebelconfig"+slash+"kafka"+slash+"kafkaconfig"+slash+"secrets:/etc/kafka/secrets")
                     yaml_cont["services"][container_name]["volumes"].append(basedir+slash+"siebelconfig"+slash+"kafka"+slash+"kafkaconfig:/etc/kafka")    
                 yaml_cont["services"][container_name]["healthcheck"]={'interval': '30s','retries': 450,'timeout': '30s'}
+                if "CONFIG" in x:
+                    yaml_cont["services"][container_name]["healthcheck"]={"test": ["CMD", "test", "-e",f"{homedir}/logs/autoinstallLogs/.{configurefile}.configured"],"interval": "45s","retries": 40,"timeout": "30s"}
+                    #yaml_cont["services"][container_name]["healthcheck"]={'test': '["CMD", "test", "-f",\"'+homedir+'/logs/autoinstallLogs/'+configurefile+'.configured\"]','interval': '45s','retries': 40,'timeout': '30s'}
+
+
+                if "KAFKA" in x or "ZOOKEEPER" in x:
+                    yaml_cont["services"][container_name].pop("healthcheck", None)
                 dyrunid="dy.runid="+runid
                 yaml_cont["services"][container_name]["labels"]=[dyrunid]
                 
@@ -335,7 +343,7 @@ def gitclone(HOMEDIR):
     if not os.path.exists(repo_dir):
 
         clone_url="git@github.com:Dymensions/dy-siebel-ip17.git"
-        os.system("git clone -b Akshay2 --depth 1 " + clone_url + " " + repo_dir)
+        os.system("git clone --depth 1 " + clone_url + " " + repo_dir)
         print("git clone --depth 1 " + clone_url + " " + repo_dir)
         os.chdir(repo_dir)
         #print ("Pull complete")
