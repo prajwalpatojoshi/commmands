@@ -81,3 +81,6 @@ for /f %i in ('docker ps -q --filter "name=config0"') do docker restart %i
 
 for /f %i in ('docker ps --format "{{.Names}}" --filter "name=config0"') do docker-compose -f "K:\dytest\23.9\docker-compose.yml" restart %i
 
+
+
+docker run -d --name betterjenkins -p 8082:8082 -p 50000:50000 -v /Users/dyadmin/ssl:/var/jenkins_home/ jenkins/jenkins:latest --httpPort=-1 --httpsPort=8082 --httpsKeyStore=/var/jenkins_home/star_dymensions_io.jks --httpsKeyStorePassword=Dymensions2017 
