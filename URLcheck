@@ -1,0 +1,191 @@
+package URLStatusUpdate;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+
+import java.util.concurrent.TimeUnit;
+import java.util.List;
+import java.util.*;
+public class URLStatusUpdate {
+	
+	public static void main(String[] args) {
+        String URL = args[0];
+        String test2 = args[1];
+        String username = args[2];
+        String password = args[3];
+        String var1 = new String("smc");
+        String var2 = new String("callcenter");
+        String var3 =new String("telco");
+        String var4 = new String ("inspire");
+        String var5 = new String ("webtools");
+        String var6 = new String ("telcoinspire");
+        String var7 = new String("Jenkins");
+        String var8 = new String("migration");
+        String var9 = new String("artifactory");
+        String var10 = new String("https://192.168.11.109:9001/siebel/app/callcenter/enu");
+        String var11 = new String("https://192.168.11.132:9001/siebel/migration");
+        String var13 = new String("https://192.168.11.109:9001/siebel/app/inspire/enu");
+        String var12 = new String("https://192.168.11.132:9002/siebel/app/inspire/enu");
+        String var14 = new String("https://192.168.11.121:9002/siebel/app/inspire/enu");
+        String var15 = new String("https://192.168.11.121:9002/siebel/app/callcenter/enu");
+        System.out.println(test2);
+        System.out.println(URL);
+        System.setProperty("webdriver.chrome.driver","C:\\EMPLOYEES\\Girishma_Kolagani\\Softwares\\Selenium\\chromedriver_win32\\chromedriver.exe");
+        ChromeOptions options=new ChromeOptions();
+        options.setHeadless(true);
+        options.addArguments("--ignore-certificate-errors");
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        driver.get(URL);                            
+        driver.manage().window().maximize();       // Maximize window size of browser  
+        if(test2.equals(var1)) {
+            WebElement Username = driver.findElement(By.id("username"));        // Enter your login email id        
+            Username.sendKeys(username);
+            WebElement Password = driver.findElement(By.name("password"));
+            Password.sendKeys(password);        // Enter your login password        
+            WebElement Login = driver.findElement(By.xpath("//a[@role='button']"));
+            Login.click();
+            List<WebElement> l=driver.findElements(By.id("actionTitle"));
+            
+            if(l.size()== 0){
+            	System.out.println("URL is Down, appearing "+l.size()+ " time"); // empty list if no matching element
+            } else {
+                System.out.println("URL is up, appearing "+l.size()+ " time");
+            }
+        }  
+        if((test2.equals(var8)) && (!URL.equals(var11))) {
+            WebElement MigUsername = driver.findElement(By.name("MigrationUserName"));        // Enter your login email id        
+            MigUsername.sendKeys(username);
+            WebElement MigPassword = driver.findElement(By.name("MigartionPassword"));
+            MigPassword.sendKeys(password);        // Enter your login password        
+            WebElement Login1 = driver.findElement(By.xpath("//a[@id='login']"));
+            Login1.click();
+            List<WebElement> l4=driver.findElements(By.xpath("//div[@class='siebui-title-header']"));
+        	if(l4.size()== 0){
+            	System.out.println("URL is Down, appearing "+l4.size()+ " time"); // empty list if no matching element
+            } else {
+                System.out.println("URL is up, appearing "+l4.size()+ " time");
+            }
+
+        }
+        if(URL.equals(var11)) {
+        	//WebElement Adv = driver.findElement(By.xpath("//button[@id='details-button']")); 
+            //Adv.click(); //Clicks on ADVANCED BUTTTON
+            //WebElement Proceed1 = driver.findElement(By.xpath("//a[@id='proceed-link']"));  
+            //Proceed1.click();   // Clicks on Proceed to URL BUTTON
+            WebElement MigUsername = driver.findElement(By.name("MigrationUserName"));        // Enter your login email id        
+            MigUsername.sendKeys(username);
+            WebElement MigPassword = driver.findElement(By.name("MigartionPassword"));
+            MigPassword.sendKeys(password);        // Enter your login password        
+            WebElement Login1 = driver.findElement(By.xpath("//a[@id='login']"));
+            Login1.click();
+            List<WebElement> l4=driver.findElements(By.xpath("//div[@class='siebui-title-header']"));
+        	if(l4.size()== 0){
+            	System.out.println("URL is Down, appearing "+l4.size()+ " time"); // empty list if no matching element
+            } else {
+                System.out.println("URL is up, appearing "+l4.size()+ " time");
+            }
+        }
+        if(test2.equals(var9)) {
+            WebElement ArtUsername = driver.findElement(By.name("user"));        // Enter your login email id        
+            ArtUsername.sendKeys(username);
+            WebElement ArtPassword = driver.findElement(By.name("password"));
+            ArtPassword.sendKeys(password);        // Enter your login password        
+            WebElement Login2 = driver.findElement(By.xpath("//button[@type='submit']"));
+            Login2.click();
+            List<WebElement> l5=driver.findElements(By.xpath("//input[@name='query']"));
+        	if(l5.size()== 0){
+            	System.out.println("URL is Down, appearing "+l5.size()+ " time"); // empty list if no matching element
+            } else {
+                System.out.println("URL is up, appearing "+l5.size()+ " time");
+            }
+
+        }
+        if(test2.equals(var7)) {
+        	WebElement Username = driver.findElement(By.id("j_username"));        // Enter your login email id        
+            Username.sendKeys(username);
+            WebElement Password = driver.findElement(By.name("j_password"));
+            Password.sendKeys(password);        // Enter your login password        
+            WebElement Login = driver.findElement(By.xpath("//button[@name='Submit']"));
+            Login.click();
+            List<WebElement> j=driver.findElements(By.id("search-box"));
+            if(j.size()== 0){
+            	System.out.println("URL is Down, appearing "+j.size()+ " time"); // empty list if no matching element
+            } else {
+                System.out.println("URL is up, appearing "+j.size()+ " time");
+            }
+        }
+
+        if(URL.equals(var12)) {
+        	WebElement User = driver.findElement(By.name("SWEUserName"));
+        	User.sendKeys(username);
+            WebElement Pwd = driver.findElement(By.name("SWEPassword"));
+            Pwd.sendKeys(password);
+            WebElement submit = driver.findElement(By.xpath("//a[@id='s_swepi_22']"));
+        	submit.click();
+        }
+        if((!test2.equals(var1)) && (!test2.equals(var7)) && (!test2.equals(var8)) && (!test2.equals(var9)) && (!URL.equals(var12)) ) {
+        	WebElement User = driver.findElement(By.name("SWEUserName"));
+        	User.sendKeys(username);
+            WebElement Pwd = driver.findElement(By.name("SWEPassword"));
+            Pwd.sendKeys(password);
+            WebElement submit = driver.findElement(By.xpath("//a[@id='s_swepi_22']"));
+        	submit.click();
+        	
+        }
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        if(((test2.equals(var2)) || (test2.equals(var4))) && (!URL.equals(var14)) && (!URL.equals(var15)) && (!URL.equals(var10)) && (!URL.equals(var13)) ) {
+        	List<WebElement> l1=driver.findElements(By.xpath("//div[@class='siebui-applet-title hp-title']"));
+        	if(l1.size()== 0){
+            	System.out.println("URL is Down, appearing "+l1.size()+ " time"); // empty list if no matching element
+            } else {
+                System.out.println("URL is up, appearing "+l1.size()+ " time");
+            }
+        }
+        if((URL.equals(var14)) || (URL.equals(var15))){
+        
+        	System.out.println("line num 19");
+        	List<WebElement> l1=driver.findElements(By.xpath("//span[@class='siebui-hb-header']"));
+        	if(l1.size()== 0){
+            	System.out.println("URL is Down, appearing "+l1.size()+ " time"); // empty list if no matching element
+            } else {
+                System.out.println("URL is up, appearing "+l1.size()+ " time");
+            }
+        }
+        if(URL.equals(var10) || URL.equals(var13)) {
+        	System.out.println("line num 128");
+        	List<WebElement> le1=driver.findElements(By.xpath("//div[@class='siebui-homepage-image']"));
+        	if(le1.size()== 0){
+            	System.out.println("URL is Down, appearing "+le1.size()+ " time"); // empty list if no matching element
+            } else {
+                System.out.println("URL is up, appearing "+le1.size()+ " time");
+            }
+        }
+        if(test2.equals(var3) || test2.equals(var6)) {
+        	List<WebElement> l2=driver.findElements(By.xpath("//a[@id='s_5_1_11_0_mb']"));
+        	if(l2.size()== 0){
+            	System.out.println("URL is Down, appearing "+l2.size()+ " time"); // empty list if no matching element
+            } else {
+                System.out.println("URL is up, appearing "+l2.size()+ " time");
+            }
+        }
+        if(test2.equals(var5)) {
+        	List<WebElement> l3=driver.findElements(By.xpath("//a[@id='objectTreeTypeLink']"));
+        	if(l3.size()== 0){
+            	System.out.println("URL is Down, appearing "+l3.size()+ " time"); // empty list if no matching element
+            } else {
+                System.out.println("URL is up, appearing "+l3.size()+ " time");
+            }
+        }
+
+        
+        
+      }
+
+}
+
+
+
