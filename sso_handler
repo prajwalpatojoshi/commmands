@@ -1,0 +1,30 @@
+package sso_handler;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+
+import java.util.concurrent.TimeUnit;
+import java.util.List;
+import java.util.*;
+
+public class sso_handler {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String playbackurl = new String("https://sbldev.dymensions.io/siebel/app/callcenter/enu");
+		System.out.println(playbackurl);
+        System.setProperty("webdriver.chrome.driver","D:\\EMPLOYEES\\Prajwal_Patojoshi\\selenium\\chromedriver-win64\\chromedriver.exe");
+        ChromeOptions options=new ChromeOptions();
+        options.addArguments("--ignore-certificate-errors");
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        driver.get(playbackurl);                            
+        driver.manage().window().maximize();
+
+	}
+
+}
