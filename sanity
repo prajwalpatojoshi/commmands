@@ -1,0 +1,32 @@
+parameters:
+- name: Target_Env
+  displayName: Target_Env
+  type: string
+  default: DEV
+- name: Sanity_Browser
+  displayName: Sanity_Browser
+  type: string
+  default: Desktop_Chrome
+- name: Mastersuite_IDs
+  displayName: Mastersuite_IDs
+  type: string
+  default: NIL  
+- name: Jobname
+  displayName: Jobname
+  type: string
+  default: Sanity
+- name: agentpool
+  displayName: agentpool
+  type: string
+  default: 'DY-SIEBEL-DEVOPS'  
+jobs:
+  - job: ${{parameters.Jobname}}
+    pool: ${{parameters.agentpool}}
+    variables:
+    - group: dy-ado-siebelvar
+    steps:
+      - checkout: none
+      - powershell: |
+            $mycmd= "$(util) orchestrateTestExecutionAzure $(Configfile) ${{parameters.Target_Env}} $(${{parameters.Target_Env}}_SADMIN_username) $(${{parameters.Target_Env}}_SADMIN_password) '$(azure_user)' $(azure_token) ${{parameters.Sanity_Browser}} '${{parameters.Mastersuite_IDs}}'"
+            write-host $mycmd
+            #Invoke-Expression $mycmd | Tee-Object -Variable output
