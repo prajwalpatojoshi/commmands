@@ -1,0 +1,150 @@
+stages:
+- stage: setVariables
+  variables:
+  - group: DDExecution
+  jobs:
+    - template: ../jobs/set-variables.yml
+      parameters: 
+        pipelineName: "SanitySuite"
+- stage: "OrchestrateExecuteAll"
+  dependsOn: 
+  - setVariables
+  variables:
+  - group: DDExecution
+  - name: jirausername
+    value: $[ stageDependencies.setVariables.setVariables.outputs['setVariables.jirausername'] ]
+  - name: jirapassword
+    value: $[ stageDependencies.setVariables.setVariables.outputs['setVariables.jirapassword'] ]
+  - name: username
+    value: $[ stageDependencies.setVariables.setVariables.outputs['setVariables.susername'] ]
+  - name: password
+    value: $[ stageDependencies.setVariables.setVariables.outputs['setVariables.spassword'] ]
+  - name: svcusername
+    value: $[ stageDependencies.setVariables.setVariables.outputs['setVariables.svcusername'] ]
+  - name: svcpassword
+    value: $[ stageDependencies.setVariables.setVariables.outputs['setVariables.svcpassword'] ]
+  - name: WebhookUri
+    value: $[ stageDependencies.setVariables.setVariables.outputs['setVariables.WebhookUri'] ]
+  - name: DD_JIRAURL
+    value: 'https://jira.desjardins.com/rest/api/2'
+  - name: svcusernamep
+    value: $[ stageDependencies.setVariables.setVariables.outputs['setVariables.svcusernamep'] ]  
+  - name: svcpasswordp
+    value: $[ stageDependencies.setVariables.setVariables.outputs['setVariables.svcpasswordp'] ]
+
+  pool: $(DY_AUTOMATIONPOOL)
+  jobs:       
+  - job: OrchestrateExecuteAll
+    timeoutInMinutes: 120 
+    steps:
+    - checkout: none
+    - powershell: |
+        $lang="$(DD_LANGUAGE)"
+        if(($lang -eq "ENU_SSO") -or ($lang -eq "FRA_SSO")){
+          #Adding Test to Testplan
+          $DD_JIRAUSERNAME = "$(jirausername)"
+          $DD_JIRAPASSWORD = "$(jirapassword)"
+          ${env:DD_TESTPLANID}="$(DD_TESTPLANID)"
+          $uri = "https://jira.desjardins.com/rest/raven/1.0/api/testplan/${env:DD_TESTPLANID}/test" 
+          write-host $uri Add script URI  
+          $credPair = "$($DD_JIRAUSERNAME):$($DD_JIRAPASSWORD)"
+          $encodedCredentials = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($credPair))
+          $headers = @{ 'Authorization' = "Basic $encodedCredentials" }
+          $body = '{"add": ["PJ300G60-16591"]}'
+          $result5 =Invoke-RestMethod -Uri $uri -Method POST -ContentType "application/json" -Body $body -Headers $headers
+          Write-Host $result5
+          
+          #run Sanity 
+
+          $mycmd="c:\temp\dymensions\DDPipeline.exe orchestrateexecuteall $(DD_TGTENV) $(DD_JIRATESTSET) $(svcusernamep) '${env:svcpassword}' $(jirausername) '$(jirapassword)' $(svcusername) '${env:svcpassword}' $(DD_JIRAID) $(DD_TESTPLANID) $(DD_LANGUAGE) $(DD_RERUN) $(DD_BROWSER) $(Build.BuildId)"
+          write-host $mycmd
+          Invoke-Expression $mycmd | Tee-Object -Variable output
+          Write-Host $mycmd
+          
+          
+          #Removing Test From Test Plan
+          
+          $uri = "https://jira.desjardins.com/rest/raven/1.0/api/testplan/${env:DD_TESTPLANID}/test/PJ300G60-16591" 
+          write-host $uri Add script URI  
+          $credPair = "$($DD_JIRAUSERNAME):$($DD_JIRAPASSWORD)"
+          $encodedCredentials = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($credPair))
+          $headers = @{ 'Authorization' = "Basic $encodedCredentials" }
+          $result5 =Invoke-RestMethod -Uri $uri -Method DELETE -ContentType "application/json" -Headers $headers
+          Write-Host $result5
+        }else{
+          $mycmd="c:\temp\dymensions\DDPipeline.exe orchestrateexecuteall $(DD_TGTENV) $(DD_JIRATESTSET) $(svcusernamep) '${env:svcpassword}' $(jirausername) '$(jirapassword)' $(svcusername) '${env:svcpassword}' $(DD_JIRAID) $(DD_TESTPLANID) $(DD_LANGUAGE) $(DD_RERUN) $(DD_BROWSER) $(Build.BuildId)"
+          write-host $mycmd
+          Invoke-Expression $mycmd | Tee-Object -Variable output
+          Write-Host $mycmd
+        }
+        $patternarray = "Failedarray(.*)failedarray" 
+        $resultarray = [regex]::match($output, $patternarray).Groups[1].Value
+        
+        $patternpass = "passcount(.*)passcount" 
+        $resultpass = [regex]::match($output, $patternpass).Groups[1].Value
+        $patternfail = "failcount(.*)failcount" 
+        $resultfail = [regex]::match($output, $patternfail).Groups[1].Value
+        $patternpercent = "passpercent(.*)passpercent" 
+        $resultpercent = [regex]::match($output, $patternpercent).Groups[1].Value
+        $resultpercent=[int]$resultpercent
+        if(($resultpercent -ge 90) -and ($resultpercent -le 100)) 
+          {
+            $passcolor="green"
+          }
+        elseif(($resultpercent -ge 75) -and ($resultpercent -lt 90))
+          {
+            $passcolor="Yellow"
+          }
+        elseif(($resultpercent -ge 60) -and ($resultpercent -lt 75))
+          {
+            $passcolor="orange"
+          }
+        elseif($resultpercent -lt 60 )
+          {
+            $passcolor="red"
+          }
+        write-host Passes $resultpass  
+        write-host Failures $resultfail
+        write-host Failed Tests $resultarray
+        write-host Pass Percentage $resultpercent
+        write-host Testplan $(DD_TESTPLANID)
+        write-host autoexectype $(DD_AUTOEXECTYPE) 
+        write-host passcolor $passcolor
+        $DD_AUTOEXECTYPE="$(DD_AUTOEXECTYPE)"
+        $WebhookUri = "$(WebhookUri)"
+        $DD_LANGUAGE="$(DD_LANGUAGE)"
+        $DD_RERUN="$(DD_RERUN)"
+        if(($DD_AUTOEXECTYPE -eq "clearcache") -or ($resultpercent -eq 0)){
+          Write-host "No Notification"
+        }elseif($DD_AUTOEXECTYPE -eq "sanity"){
+          if($resultpercent -ne 0) 
+          {
+           
+          Write-host "sanity"
+          $testplanid="$(DD_TESTPLANID)"
+          $resultlink="https://jira.desjardins.com/browse/$testplanid"
+          $body3='{"text": "'+ '<b>'+ 'Subject:' + '</b>' + 'Sanity Test is completed from ' + ${env:DD_SRCENV} + ' to ' + ${env:DD_TGTENV} + '<br>' + '<b>'+ ' Passed Tests: ' + '</b>'+ $resultpass + '<br>' + '<b>'+ ' Sanity Language: ' + '</b>'+ $DD_LANGUAGE + '<br>' + '<b>'+ ' RERUNS on Failed Tests: ' + '</b>'+ $DD_RERUN + '<br>' + '<b>'+ ' Pass Percentage: ' + '</b>'+ "<strong style=color:$passcolor;> $resultpercent % </strong>"  + '<br>' +'<b>'+ ' Failed Tests:'  + '</b>' + $resultfail +'<b>'+ ' Failed Test IDs :'  + '</b>' + $resultarray  + '<br>' + '<b>'+ ' Jira Test Plan :'  + '</b>' + "<a href='$resultlink'>$testplanid</a>"  + '"}'
+          $uri = "$WebhookUri"
+          write-host $uri
+          $result3 =Invoke-RestMethod -Method POST -ContentType 'Application/Json' -Body $body3 -Uri $uri
+          write-host $result3
+          }
+        }
+      
+        if("$(DD_JIRATESTSET)" -eq "$(DD_TESTPLANID)"){
+          write-host "Changing status of $(DD_JIRATESTSET)"
+          $user = "$(jirausername)"
+          $password = "$(jirapassword)"
+          write-host "$user $password"
+          $pass=$password -replace '"', ""
+          $pair = "$($user):$($pass)"
+          $encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
+          $basicAuthValue = "Basic $encodedCreds"
+          $headers = @{ Authorization = $basicAuthValue}
+          $body='{"transition":{"id":"91"}}'
+          $uri = "${env:DD_JIRAURL}/issue/$(DD_TESTPLANID)/transitions"
+          Write-host $uri
+          $result4 =Invoke-RestMethod -Uri $uri -Method POST -ContentType "application/json" -Body $body -Headers $headers
+          Write-Host $result
+          }
+    
