@@ -1,0 +1,42 @@
+package com.siebel.automation.keywordFrameworkcust;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import com.siebel.automation.keywordFramework.KeywordActionHandler;
+import java.util.concurrent.TimeUnit;
+import java.util.List;
+import java.util.*;
+
+public class sso_handler implements KeywordActionHandler {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        String username = args[0];
+        String password = args[1];
+        System.out.println(username);
+        System.out.println(password);
+		String playbackurl = new String("https://sbldev.dymensions.io/siebel/app/callcenter/enu");
+		System.out.println(playbackurl);
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\dymensions\\selenium\\chromedriver.exe");
+        ChromeOptions options=new ChromeOptions();
+        options.addArguments("--ignore-certificate-errors");
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        driver.get(playbackurl);                            
+        driver.manage().window().maximize();
+        WebElement Username = driver.findElement(By.name("email"));        // Enter your login email id        
+        Username.sendKeys(username);
+        WebElement Login2 = driver.findElement(By.xpath("//button[@type='submit']"));
+        Login2.click();
+        WebElement Password = driver.findElement(By.name("password"));
+        Password.sendKeys(password);
+        WebElement Login3 = driver.findElement(By.xpath("//button[@type='submit']"));
+        Login3.click();
+
+	}
+
+}
