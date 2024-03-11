@@ -1,0 +1,672 @@
+{
+  "GLOBAL": {
+    "DY_BASEIODIR_UNIX":"/home/dymensions/.dymensions",
+    "DY_BASEIODIR":"C:\\dymensions",
+    "DY_LOGSDIR": "C:\\dymensions\\logs",
+    "DY_BASEDIR":"C:\\dymensions",
+    "DY_BASEDIR_UNIX": "/home/dymensions/.dymensions",
+    "DY_LOGSDIR_UNIX": "/home/dymensions/.dymensions/logs",
+    "DY_CHECKINBUNDLELOC": "/home/dymensions/.dymensions",
+    "DY_URLpath": "C:\\dymensions\\URLStatusCheck.jar",
+    "DY_VMPath": "C:/Program Files/Oracle/VirtualBox/VBoxManage.exe",
+    "DY_VM09Path": "D:/VirtualBox/VBoxManage.exe",
+    "DY_VM21Path": "C:/Oracle/VirtualBox/VBoxManage.exe",
+    "DY_VM32Path": "D:/VirtualBox/VB/VBoxManage.exe",
+    "DY_DEBUG": "1",
+    "DY_TOOLSHOME": "D:\\Siebel21\\Tools",
+    "DY_REPO":"dy-ip17cicd-objs",
+    "DY_GITURL": "https://github.com/Dymensions/siebel_cicd",
+    "DY_GITSIFURL": "https://github.com/Dymensions/dy-ip17cicd-objs",
+    "DY_GITREPOLINK": "git@github.com:Dymensions/siebel_cicd",
+    "DY_GITAPIURL": "https://api.github.com/repos/dymensions",
+    "DY_GIT": "git",
+    "DY_GITREPO": "siebel_cicd",
+    "DY_GITREPOSIF":"dy-ip17cicd-objs",
+    "DY_GITREPOSIFLINK": "git@github.com:Dymensions/dy-ip17cicd-objs.git",
+    "DY_GITREPOSIFHTTPSLINK": "git@github.com:Dymensions/dy-ip17cicd-objs.git",
+    "DY_GIT_UNIX": "git",
+    "DY_BINARYREPO": "http://192.168.11.122:8083/artifactory/SiebelMigration",
+    "DY_BINARYREPONAME": "SiebelMigration",
+    "DY_JIRAAPILINK": "https://dymensions.atlassian.net/rest/api/2",
+    "DY_JIRAAPILINK2": "https://dymensions.atlassian.net/rest/raven/1.0/api",
+    "DY_JIRAUSER": "Krishna Javvaji",
+    "DY_WINSSHPATH": "C:\\Users\\dymensions",
+    "DY_DEVSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_PRODSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_DESTINATIONLOC":"siebelmigration",
+    "DY_TIMEOUT":"2400",
+    "DY_CSS":"files",
+    "DY_JS":"scripts",    
+    "DY_ANSIBLEBASEDIR": "/home/dymensions/.dymensions/ansible",
+    "DY_ANSIBLEHOSTS": "hosts",
+    "DY_ANSIBLEPLAYBOOKDIR": "playbooks",
+    "DY_ANSIBLESYNCPLAYBOOK": "genericfilesync.yml",
+    "DY_PROJECTKEY":"b014cd656bc9178505cdb68d934167515ee49750",
+    "DY_SOURCEIP":"192.168.11.132",
+    "DY_TARGETIP":"192.168.11.122",
+    "DY_SOURCEUSER":"dymensions",
+    "DY_TARGETUSER":"dymensions",
+    "DY_JENKINSURL":"http://192.168.11.122:8082/job",
+    "DY_SONARSCANNERURL": "http://192.168.11.122:9000",
+    "DY_WINJENKINSURL":"http://192.168.11.120:8080/job",
+    "DY_SIEBELLOGS":"/home/dymensions/IP19/siebellogs",
+    "DY_SIEBSRVRPATH":"/home/siebel/ses/siebsrvr",
+    "DY_LOGANALYZERURL":"http://192.168.11.122:3000/tasks/add",
+    "DY_APPLICATION_VERSION":"1-BUILD",
+    "DY_APPLICATION_ALIAS":"Siebel Universal Agent",
+    "DY_DISAJAVACMD":"C:\\Siebel\\DISA\\jre\\bin\\java.exe",
+    "DY_DISAHOME":"C:\\Siebel\\DISA",
+    "DY_KWDHOME":"C:\\Siebel\\DISA\\DesktopIntSiebelAgent\\plugins\\SiebelTestAutomation\\Framework\\",
+    "DY_AZUREURL":"https://dev.azure.com/DymTestOrg-TRIAL/DymTestPrg"
+  },
+    
+  "DEV": {
+    "DY_SIEBELSERVERS": [
+      {
+        "name": "N1VLTADTHS03",
+        "ip": "..."
+      }
+    ],
+    "DY_AISERVERS": [
+      {
+        "name": "devai0",
+        "ip": "192.168.11.132"
+      }
+    ],
+    "DY_TARGETENV":"DEV",
+    "DY_AISRVRNAME":"devai0",
+    "DY_SESSRVRNAME":"devses0",
+    "DY_GWSRVRNAME":"devgw",
+    "DY_OWNERUSER":"SIEBEL",
+    "DY_HOST":"192.168.11.132:9001",
+    "DY_SOURCEPORT":"9001",
+    "DY_BATCHSOURCEURL":"https://192.168.11.122:9001/siebel",
+    "DY_SOURCEURL":"https://192.168.11.122:9001",
+    "DY_MASTERSUITEID":"1DY-INAFX,1DY-INAFY,1DY-INAFZ",
+    "DY_TARGETURL":"https://192.168.11.122",
+    "DY_PLAYBACKURL":"https://192.168.11.122:9001/siebel/app/callcenter/enu",
+    "DY_TARGETPORT":"9001",
+    "DY_SOURCESCHEMAUSER":"siebel",
+    "DY_STATUS":"DEV: Request for Delivery",
+    "DY_WORKSPACE":"int_dy_inspire_dev",
+    "DY_SOURCEBRANCH":"int_dy_inspire_dev",
+    "DY_TARGETBRANCH":"int_dy_inspire_dev",
+    "DY_TOOLSCFGFILE":"tools.cfg",
+    "DY_TARGETCFGDATASOURCE":"ServerDataSrc",
+    "DY_TARGETDB":"SIEBELPDB",
+    "DY_REPOSITORY":"Siebel Repository",
+    "DY_SESNAME":"devses0",
+    "DY_SOURCEIP":"192.168.11.132",
+    "DY_TARGETIP":"192.168.11.132",
+    "DY_SOURCEUSER":"dymensions",
+    "DY_TARGETUSER":"dymensions",
+    "DY_MIGRATIONSOURCEURL":"https://192.168.11.132:9001",
+    "DY_MIGRATIONTARGETURL":"https://migai0.dymensions.io:9001",
+    "DY_SWSESRVRHOME":"/home/dymensions/IP19/siebelconfig/demo",
+    "DY_HOME": "/home/siebel",
+    "DY_ENTERPRISENAME": "SIEBEL",
+    "DY_SIEBSRVRNAME": "siebel",
+    "DY_GTWYPORT": "9001",
+    "DY_GTWYSRVRNAME": "siebel",
+    "DY_FRREXPORTPLAN":"FRR_DEV_TEST_MIG_EXPORT_122",
+    "DY_EXPORTPLAN":"IRR_DEV_TEST_MIG_EXPORT_122",
+    "DY_IMPORTPLAN":"IRR_DEV_TEST_MIG_IMPORT_122",
+    "DY_FRRIMPORTPLAN":"FRR_TEST_IMPORT_122",
+    "DY_MIGRATIONCONNECTION":"Test",
+    "DY_SIEBSRVRHOME": "/home/siebel/ses/siebsrvr",
+    "DY_GTWYSRVRHOME": "/home/siebel/ses/gtwysrvr",
+    "DY_MIGHOME":"/home/siebel/fs/migration",
+    "DY_DEVSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_PRODSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration"
+  },
+  "TEST": {
+    "DY_SIEBELSERVERS": [
+      {
+        "name": "sip20ps2ses0",
+        "ip": "..."
+      }
+    ],
+    "DY_AISERVERS": [
+      {
+        "name": "migai0",
+        "ip": "192.168.11.122"
+      }
+    ],
+    "DY_TARGETENV":"TEST",
+    "DY_AISRVRNAME":"migai0",
+    "DY_SESSRVRNAME":"migses0",
+    "DY_GWSRVRNAME":"miggw",
+    "DY_HOST":"192.168.11.122:9001",
+    "DY_MIGRATIONCONNECTION":"DEV_TEST_122_EXPORT_CON",
+    "DY_SWSESRVRHOME":"/home/dymensions/IP19/siebelconfig/demo",
+    "DY_OWNERUSER":"SIEBEL",
+    "DY_OWNERGROUP":"dymensions",
+    "DY_BATCHSOURCEURL":"https://dymensions22.dymensions.io:9001/siebel",
+    "DY_SOURCEURL":"https://dymensions22.dymensions.io:9001",
+    "DY_MASTERSUITEID":"1DY-H014O,1DY-H014M,1DY-H014K",
+    "DY_PLAYBACKURL":"https://dymensions22.dymensions.io:9002/siebel/app/callcenter/enu",
+    "DY_SOURCEPORT":"9001",
+    "DY_TARGETURL":"https://192.168.11.122",
+    "DY_TARGETPORT":"9001",
+    "DY_STATUS":"TEST: Request for Deployment",
+    "DY_WORKSPACE":"int_dy_inspire_dev",
+    "DY_SOURCEBRANCH":"int_dy_inspire_dev",
+    "DY_TARGETBRANCH":"int_dy_inspire_dev",
+    "DY_TARGETPARENTWS":"MAIN",
+    "DY_SOURCEUSER":"dymensions",
+    "DY_TARGETUSER":"dymensions",
+    "DY_MIGRATIONSOURCEURL":"https://192.168.11.132:9001",
+    "DY_MIGRATIONTARGETURL":"https://192.168.11.122:9001",
+    "DY_MIGRATIONTARGETWMURL":"https://192.168.11.122:9001",
+    "DY_SOURCEIP":"192.168.11.132",
+    "DY_TARGETIP":"192.168.11.122",
+    "DY_MIGHOME":"/home/siebel/fs/migration",
+    "DY_DEVSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_PRODSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_TOOLSCFGFILE":"tools.cfg",
+    "DY_TARGETCFGDATASOURCE":"ServerDataSrc",
+    "DY_TARGETDB":"SIEBELPDB",
+    "DY_REPOSITORY":"Siebel Repository Inspire",
+    "DY_SESNAME":"devses0",
+    "DY_TIMEOUT":"2400",
+    "DY_HOME": "/home/siebel",
+    "DY_ENTERPRISENAME": "siebel",
+    "DY_GTWYPORT": "9111",
+    "DY_GTWYSRVRNAME": "siebel",
+    "DY_SIEBSRVRHOME": "/home/siebel/ses/siebsrvr",
+    "DY_GTWYSRVRHOME": "/home/siebel/gw/gtwysrvr",
+    "DY_FRREXPORTPLAN":"FRR_DEV_TEST_MIG_EXPORT_122",
+    "DY_EXPORTPLAN":"IRR_DEV_TEST_MIG_EXPORT_122",
+    "DY_IMPORTPLAN":"IRR_DEV_TEST_MIG_IMPORT_122",
+    "DY_FRRIMPORTPLAN":"FRR_TEST_IMPORT_122",
+    "DY_MIGRATIONCONNECTION":"Test"
+  },
+"TEST2": {
+    "DY_SIEBELSERVERS": [
+      {
+        "name": "sip20ps2ses0",
+        "ip": "..."
+      }
+    ],
+    "DY_AISERVERS": [
+      {
+        "name": "testai0",
+        "ip": "192.168.11.121"
+      }
+    ],
+    "DY_TARGETENV":"TEST2",
+    "DY_AISRVRNAME":"testai0",
+    "DY_SESSRVRNAME":"testses0",
+    "DY_GWSRVRNAME":"testgw",
+    "DY_HOST":"192.168.11.121:9001",
+    "DY_SWSESRVRHOME":"/home/dymensions/IP19/siebelconfig/demo",
+    "DY_OWNERUSER":"SIEBEL",
+    "DY_OWNERGROUP":"dymensions",
+    "DY_BATCHSOURCEURL":"https://dymensions60.dymensions.io:9001/siebel",
+    "DY_SOURCEURL":"https://dymensions60.dymensions.io:9001",
+    "DY_MASTERSUITEID":"9SIA-BSQUD",
+    "DY_PLAYBACKURL":"https://dymensions60.dymensions.io:9001/siebel/app/callcenter/enu",
+    "DY_SOURCEPORT":"9001",
+    "DY_TARGETURL":"https://192.168.11.121",
+    "DY_TARGETPORT":"9001",
+    "DY_WORKSPACE":"int_dy_inspire",
+    "DY_TARGETPARENTWS":"MAIN",
+    "DY_SOURCEUSER":"dymensions",
+    "DY_TARGETUSER":"dymensions",
+    "DY_MIGRATIONSOURCEURL":"https://192.168.11.132:9001",
+    "DY_MIGRATIONTARGETURL":"https://192.168.11.121:9001",
+    "DY_MIGRATIONTARGETWMURL":"https://192.168.11.121:9001",
+    "DY_SOURCEIP":"192.168.11.132",
+    "DY_TARGETIP":"192.168.11.121",
+    "DY_MIGHOME":"/home/siebel/fs/migration",
+    "DY_DEVSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_PRODSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_TOOLSCFGFILE":"tools.cfg",
+    "DY_TARGETCFGDATASOURCE":"ServerDataSrc",
+    "DY_TARGETDB":"SIEBELPDB",
+    "DY_REPOSITORY":"Siebel Repository Inspire",
+    "DY_SESNAME":"devses0",
+    "DY_TIMEOUT":"2400",
+    "DY_HOME": "/home/siebel",
+    "DY_ENTERPRISENAME": "siebel",
+    "DY_GTWYPORT": "9111",
+    "DY_GTWYSRVRNAME": "siebel",
+    "DY_SIEBSRVRHOME": "/home/siebel/ses/siebsrvr",
+    "DY_GTWYSRVRHOME": "/home/siebel/gw/gtwysrvr",
+    "DY_EXPORTPLAN":"IRR_DEV_TEST2_MIG_EXPORT_109",
+    "DY_FRREXPORTPLAN":"FRR_DEV_TEST2_MIG_EXPORT_109",
+    "DY_IMPORTPLAN":"IRR_PROD_IMPORT_CONN",
+    "DY_FRRIMPORTPLAN":"FRR_PROD_IMPORT_CONN",
+    "DY_MIGRATIONCONNECTION":"Prod"
+
+  },
+"STAGE": {
+    "DY_SIEBELSERVERS": [
+      {
+        "name": "sip20ps2ses0",
+        "ip": "..."
+      }
+    ],
+    "DY_AISERVERS": [
+      {
+        "name": "migai0",
+        "ip": "192.168.16.122"
+      }
+    ],
+    "DY_TARGETENV":"DEV",
+    "DY_AISRVRNAME":"migai0",
+    "DY_SESSRVRNAME":"migses0",
+    "DY_GWSRVRNAME":"miggw",
+    "DY_HOST":"192.168.16.122:9001",
+    "DY_SWSESRVRHOME":"/home/dymensions/IP19/siebelconfig/demo",
+    "DY_OWNERUSER":"SIEBEL",
+    "DY_OWNERGROUP":"dymensions",
+    "DY_BATCHSOURCEURL":"https://dymensions60.dymensions.io:9001/siebel",
+    "DY_SOURCEURL":"https://dymensions60.dymensions.io:9001",
+    "DY_MASTERSUITEID":"9SIA-BSQUD",
+    "DY_PLAYBACKURL":"https://dymensions60.dymensions.io:9001/siebel/app/callcenter/enu",
+    "DY_SOURCEPORT":"9001",
+    "DY_TARGETURL":"https://192.168.16.122",
+    "DY_TARGETPORT":"9001",
+    "DY_STATUS":"PROD: Request for Deployment",
+    "DY_WORKSPACE":"int_dy_inspire_dev",
+    "DY_TARGETPARENTWS":"int_dy_inspire_stage",
+    "DY_SOURCEUSER":"dymensions",
+    "DY_TARGETUSER":"dymensions",
+    "DY_MIGRATIONSOURCEURL":"https://192.168.18.132:9001",
+    "DY_MIGRATIONTARGETURL":"https://migai0.dymensions.io:9001",
+    "DY_MIGRATIONTARGETWMURL":"https://192.168.16.121:9001",
+    "DY_SOURCEIP":"192.168.11.132",
+    "DY_TARGETIP":"192.168.11.122",
+    "DY_MIGHOME":"/home/siebel/fs/migration",
+    "DY_DEVSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_PRODSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_TOOLSCFGFILE":"tools.cfg",
+    "DY_TARGETCFGDATASOURCE":"ServerDataSrc",
+    "DY_TARGETDB":"SIEBELPDB",
+    "DY_REPOSITORY":"Siebel Repository Inspire",
+    "DY_SESNAME":"devses0",
+    "DY_TIMEOUT":"2400",
+    "DY_HOME": "/home/siebel",
+    "DY_ENTERPRISENAME": "siebel",
+    "DY_GTWYPORT": "9111",
+    "DY_GTWYSRVRNAME": "siebel",
+    "DY_SIEBSRVRHOME": "/home/siebel/ses/siebsrvr",
+    "DY_GTWYSRVRHOME": "/home/siebel/gw/gtwysrvr",
+    "DY_EXPORTPLAN":"IRR_EXPORT_INSPIRE_STAGE",
+    "DY_IMPORTPLAN":"IRR_IMPORT_INSPIRE"
+  },
+"PROD": {
+    "DY_SIEBELSERVERS": [
+      {
+        "name": "sip20ps2ses0",
+        "ip": "..."
+      }
+    ],
+    "DY_AISERVERS": [
+      {
+        "name": "prodai0",
+        "ip": "192.168.11.109"
+      }
+    ],
+    "DY_TARGETENV":"PROD",
+    "DY_AISRVRNAME":"prodai0",
+    "DY_SESSRVRNAME":"prodses0",
+    "DY_GWSRVRNAME":"prodgw",
+    "DY_HOST":"192.168.11.109:9001",
+    "DY_STATUS":"PROD: Request for Deployment",
+    "DY_SWSESRVRHOME":"/home/dymensions/IP19/siebelconfig/demo",
+    "DY_OWNERUSER":"SIEBEL",
+    "DY_OWNERGROUP":"dymensions",
+    "DY_BATCHSOURCEURL":"https://dymensions60.dymensions.io:9001/siebel",
+    "DY_SOURCEURL":"https://dymensions60.dymensions.io:9001",
+    "DY_MASTERSUITEID":"1DY-8DLOA",
+    "DY_PLAYBACKURL":"https://dymensions60.dymensions.io:9001/siebel/app/callcenter/enu",
+    "DY_SOURCEPORT":"9001",
+    "DY_TARGETURL":"https://192.168.11.109",
+    "DY_TARGETPORT":"9001",
+    "DY_WORKSPACE":"int_dy_inspire",
+    "DY_SOURCEBRANCH":"int_dy_inspire_dev",
+    "DY_TARGETBRANCH":"int_dy_inspire_dev",
+    "DY_TARGETPARENTWS":"MAIN",
+    "DY_SOURCEUSER":"dymensions",
+    "DY_TARGETUSER":"dymensions",
+    "DY_MIGRATIONSOURCEURL":"https://192.168.11.132:9001",
+    "DY_MIGRATIONTARGETURL":"https://192.168.11.109:9001",
+    "DY_MIGRATIONTARGETWMURL":"https://192.168.11.109:9001",
+    "DY_SOURCEIP":"192.168.11.132",
+    "DY_TARGETIP":"192.168.11.109",
+    "DY_MIGHOME":"/home/siebel/fs/migration",
+    "DY_DEVSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_PRODSOURCELOC":"/home/dymensions/IP19/siebelfs/siebelfs1/migration",
+    "DY_TOOLSCFGFILE":"tools.cfg",
+    "DY_TARGETCFGDATASOURCE":"ServerDataSrc",
+    "DY_TARGETDB":"SIEBELPDB",
+    "DY_REPOSITORY":"Siebel Repository Inspire",
+    "DY_SESNAME":"devses0",
+    "DY_TIMEOUT":"2400",
+    "DY_HOME": "/home/siebel",
+    "DY_ENTERPRISENAME": "siebel",
+    "DY_GTWYPORT": "9111",
+    "DY_GTWYSRVRNAME": "siebel",
+    "DY_SIEBSRVRHOME": "/home/siebel/ses/siebsrvr",
+    "DY_GTWYSRVRHOME": "/home/siebel/gw/gtwysrvr",
+    "DY_EXPORTPLAN":"IRR_DEV_TEST2_MIG_EXPORT_109",
+    "DY_FRREXPORTPLAN":"FRR_DEV_TEST2_MIG_EXPORT_109",
+    "DY_IMPORTPLAN":"IRR_PROD_IMPORT_CONN",
+    "DY_FRRIMPORTPLAN":"FRR_PROD_IMPORT_CONN",
+    "DY_MIGRATIONCONNECTION":"Prod"
+
+  },
+	"NONADMOBJECTS": {
+	  "PDQ": [
+		{
+		"table": "S_APP_QUERY",
+		"source":"WHERE PRIV_FLG='N'"
+		}
+	  ],
+	  "PersonalizationApplets": [
+		{
+		  "table"  :"S_CT_RULE",
+		  "source" :"WHERE CT_RULE_SET_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_CT_RULE_SET)"
+		},
+		{
+		  "table" :"S_CT_RULE_SET"	  
+		},
+		{
+		 "table" :"S_CT_APPLET",
+		 "source":"WHERE APPLET_NAME IN (SELECT T1.NAME FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_APPLET WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_APPLET WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1 WHERE T1.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N')",
+		 "target":""
+		},
+		{
+		 "table" : "S_CT_APLT_RLST", 
+		 "source":"WHERE CT_APPLET_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_CT_APPLET WHERE  APPLET_NAME IN (SELECT T1.NAME FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_APPLET WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_APPLET WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1 WHERE T1.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N')) AND CT_RULE_SET_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_CT_RULE_SET)",
+		 "target":"WHERE CT_APPLET_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_CT_APPLET)"
+		}   
+	 ],
+	  "ValidationMessage": [
+		{
+		  "table": "S_ISS_VMSG_LANG", 
+		  "source":"WHERE PAR_ROW_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_ISS_VALDN_MSG)"
+		},
+		{
+		 "table":"S_ISS_VALDN_MSG"
+		}
+	  ],
+	  "ValidationRule": [
+		{
+		  "table":"S_VALDNACTN_ARG",
+		  "source":"WHERE VALDN_ACTN_ID IN (SELECT VA.ROW_ID FROM $TABLEOWNER.S_VALDN_ACTN VA, $TABLEOWNER.S_VALDN_RULE VRL, $TABLEOWNER.S_VALDN_RL_SET VRLS WHERE VA.VALDN_RULE_ID=VRL.ROW_ID AND VRL.RULE_SET_ID=VRLS.ROW_ID AND VRLS.STATUS_CD='Active')",
+		  "target":""
+		},
+		{
+		  "table" : "S_VALDN_ACTN", 
+			"source":"WHERE VALDN_RULE_ID IN (SELECT VRL.ROW_ID FROM $TABLEOWNER.S_VALDN_RULE VRL, $TABLEOWNER.S_VALDN_RL_SET VRLS WHERE VRL.RULE_SET_ID=VRLS.ROW_ID AND VRLS.STATUS_CD='Active') AND (BUSCOMP_NAME IS NULL OR BUSCOMP_NAME IN (SELECT T1.NAME FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_BUSCOMP WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_BUSCOMP WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1 WHERE T1.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N'))",
+			"target":""
+		},
+		{
+		  "table": "S_VALDN_SET_ARG", 
+			"source":"WHERE RULE_SET_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_VALDN_RL_SET WHERE STATUS_CD='Active')"
+		},
+		{
+		  "table": "S_VALDN_RULE", 
+		   "source":"WHERE RULE_SET_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_VALDN_RL_SET WHERE STATUS_CD='Active') AND (BUSCOMP_NAME IN (SELECT T1.NAME FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_BUSCOMP WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_BUSCOMP WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1 WHERE T1.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N'))",
+		   "target":""
+		},
+		  {
+		  "table":"S_VALDN_RL_SET",
+		  "source":"WHERE STATUS_CD='Active' AND (BUSCOMP_NAME IN (SELECT T1.NAME FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_BUSCOMP WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_BUSCOMP WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1 WHERE T1.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N'))",
+		  "target":""
+		}
+	  ],
+	  "EAI Data Map": [
+		{
+		"table":"S_INT_OBJMAP"
+		},
+		{
+		  "table": "S_INT_MAP_ARG", 
+		  "source":"WHERE INT_OBJ_MAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_INT_OBJMAP)"
+		},
+		{
+		  "table": "S_INT_COMPMAP", 
+		  "source":"WHERE INT_OBJ_MAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_INT_OBJMAP)"
+		},
+		{
+		"table":"S_INT_FLDMAP",
+		"source":"WHERE INT_COMP_MAP_ID IN (SELECT ICM.ROW_ID FROM $TABLEOWNER.S_INT_COMPMAP ICM, $TABLEOWNER.S_INT_OBJMAP IOM WHERE ICM.INT_OBJ_MAP_ID=IOM.ROW_ID)"
+		}
+	  ],
+	  "EAI Lookup Map": [
+		{
+		  "table": "S_EAI_LOOKUPMAP"	  
+		}
+	  ],
+	  "FINS Data Map": [
+		{
+		  "table":"S_BUSOBJ_DMAP" 
+		},
+		{
+		  "table": "S_BUSCOMP_DMAP", 
+		  "source":"WHERE BUSOBJ_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSOBJ_DMAP ) OR ROW_ID IN (SELECT PAR_BC_DMAP_ID FROM $TABLEOWNER.S_BUSCOMP_DMAP WHERE BUSOBJ_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSOBJ_DMAP ))"
+		},
+		{
+		  "table": "S_BCDMAP_UPROP", 
+		  "source":"WHERE BC_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSCOMP_DMAP WHERE BUSOBJ_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSOBJ_DMAP) OR ROW_ID IN (SELECT PAR_BC_DMAP_ID FROM $TABLEOWNER.S_BUSCOMP_DMAP WHERE BUSOBJ_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSOBJ_DMAP)))"
+		},
+		  {
+		  "table":"S_FIELD_DMAP",
+		  "source":"WHERE BUSCOMP_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSCOMP_DMAP WHERE BUSOBJ_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSOBJ_DMAP ) OR ROW_ID IN (SELECT PAR_BC_DMAP_ID FROM $TABLEOWNER.S_BUSCOMP_DMAP WHERE BUSOBJ_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSOBJ_DMAP )))"
+		},
+		  {
+		  "table":"S_FLDDMAP_UPROP",
+		  "source":"WHERE FIELD_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_FIELD_DMAP WHERE BUSCOMP_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSCOMP_DMAP WHERE BUSOBJ_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSOBJ_DMAP) OR ROW_ID IN (SELECT PAR_BC_DMAP_ID FROM $TABLEOWNER.S_BUSCOMP_DMAP WHERE BUSOBJ_DMAP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_BUSOBJ_DMAP))))"
+		}
+	  ],
+	  "Shift": [
+		{
+		  "table": "S_SCHED_CAL"
+		},
+		{
+		  "table": "S_SCHED_CAL_HRS"
+		},
+		{
+		  "table":"S_EXCPT_CAL"
+		},
+		{
+		  "table":"S_EXCPT_CAL_HRS"
+		}
+	  ]
+	},
+  "DATAMIGDEPENDENCY": [
+    {
+      "Responsibilities": [
+        {
+          "table": "S_APP_VIEW",
+          "objectname": "Views"
+        }
+      ],
+      "AccessControlledTasks": [
+        {
+          "table": "S_RESP",
+          "objectname": "Responsibilities"
+        }
+      ],
+      "ViewLink": [
+        {
+          "table": "S_APP_VIEW",
+          "objectname": "Views"
+        }
+      ],
+      "ValidationRule": [
+        {
+          "objectname": "ValidationMessage"
+        }
+      ]
+    }
+  ],
+  
+"ADMOBJECTS": {	
+	"Personalization Applet": {
+		"fname": "Personalization_-_Applets.xml",
+		"nodes": [
+        {
+		  "SQL": "SELECT APPLET_NAME FROM $TABLEOWNER.S_CT_APPLET WHERE APPLET_NAME NOT IN (SELECT T1.NAME FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_APPLET WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_APPLET WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1 WHERE T1.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N')",
+          "XMLPath": "/SiebelMessage/EAIMessage/ListOfPersonalization_spcApplets/Applet_spcPersonalization/_sblesc_und_undPROPERTIES_und_und/Name[string()=ddkey1]",
+          "Keys": {
+            "key1": "APPLET_NAME"
+          }
+        }
+      ]   
+    },
+    "Audit Trail": {
+      "fname": "Audit_Trail_Admin.xml",
+      "nodes": [
+        {
+          "SQL": "SELECT BUSCOMP_NAME, RESTRICTION_CD, TO_CHAR(FROM_TZ(CAST(START_DT AS TIMESTAMP), 'GMT') at time zone 'US/Eastern', 'MM/DD/YYYY HH24:MI:SS') AS AUDIT_START FROM $TABLEOWNER.S_AUDIT_BUSCOMP T2 WHERE NOT EXISTS (SELECT 1 FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_BUSCOMP WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_BUSCOMP WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1 WHERE T1.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N' AND T1.NAME = T2.BUSCOMP_NAME)",
+          "XMLPath": "/SiebelMessage/EAIMessage/ListOfAudit_spcTrail_spcAdmin_spc-_spcADM/Audit_spcTrail_spcBuscomp/_sblesc_und_undPROPERTIES_und_und/Buscomp[string()=ddkey1]/../Restriction_spcType[string()=ddkey2]/../Start_spcDate[string()=ddkey3]",
+          "Keys": {
+            "key1": "BUSCOMP_NAME",
+            "key2": "RESTRICTION_CD",
+            "key3": "AUDIT_START"
+          }
+        },
+        {
+          "SQL": "SELECT ADM1.BUSCOMP_NAME AS BUSCOMP_NAME, ADM1.RESTRICTION_CD AS RESTRICTION_CD, TO_CHAR(FROM_TZ(CAST(START_DT AS TIMESTAMP), 'GMT') at time zone 'US/Eastern', 'MM/DD/YYYY HH24:MI:SS') AS AUDIT_START, ADM2.FIELD_NAME AS FIELD_NAME FROM $TABLEOWNER.S_AUDIT_BUSCOMP ADM1, $TABLEOWNER.S_AUDIT_FIELD ADM2 WHERE ADM2.AUDIT_BC_ID = ADM1.ROW_ID AND NOT EXISTS ( SELECT 1 FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_BUSCOMP WHERE ( $WORKSPACE_QUERY )) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_BUSCOMP WHERE ( $WORKSPACE_QUERY )) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1, (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_FIELD WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_FIELD WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T2 WHERE T2.BUSCOMP_ID = T1.WS_SRC_ID AND T2.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N' AND T2.INACTIVE_FLG='N' AND T1.NAME= ADM1.BUSCOMP_NAME AND T2.NAME=ADM2.FIELD_NAME)",
+          "XMLPath": "/SiebelMessage/EAIMessage/ListOfAudit_spcTrail_spcAdmin_spc-_spcADM/Audit_spcTrail_spcBuscomp/_sblesc_und_undPROPERTIES_und_und/Buscomp[string()=ddkey1]/../Restriction_spcType[string()=ddkey2]/../Start_spcDate[string()=ddkey3]/../../ListOfAudit_spcTrail_spcField/Audit_spcTrail_spcField/_sblesc_und_undPROPERTIES_und_und/Field[string()=ddkey4]",
+          "Keys": {
+            "key1": "BUSCOMP_NAME",
+            "key2": "RESTRICTION_CD",
+            "key3": "AUDIT_START",
+            "key4": "FIELD_NAME"
+          }
+        }
+      ]
+    },
+    "Activity Template": {
+      "fname": "DY_Activity_Template.xml",
+      "nodes": [
+        {
+          "SQL": "SELECT T2.NAME AS TMPL_NAME, T2.TYPE_CD AS TMPL_TYPE, T4.LINE_NUM FROM SIEBEL.S_INT_INSTANCE T1,SIEBEL.S_TMPL_PLANITEM T2,SIEBEL.S_USER T3,SIEBEL.S_EVT_TASK T4,SIEBEL.S_PARTY T5,SIEBEL.S_EVT_ACT_SS T6,SIEBEL.S_EVT_ACT T7 WHERE  T7.TMPL_PLANITEM_ID = T2.ROW_ID (+) AND T6.OWN_INST_ID = T1.ROW_ID (+) AND T7.ROW_ID = T4.PAR_ROW_ID (+) AND T7.ROW_ID = T6.PAR_ROW_ID (+) AND T7.OWNER_PER_ID = T5.ROW_ID (+) AND T7.OWNER_PER_ID = T3.PAR_ROW_ID (+) AND (T7.TEMPLATE_FLG = 'Y') AND (T7.TMPL_PLANITEM_ID IN (SELECT T2.ROW_ID  FROM SIEBEL.S_CL_PTCL_LS T1,SIEBEL.S_TMPL_PLANITEM T2 WHERE  T2.CL_PTCL_ID = T1.ROW_ID (+) AND (T2.TMPL_TYPE_CD = 'Activity' AND T2.TYPE_CD != 'Clinical Subject') AND (T2.TYPE_CD = 'Account'))) GROUP BY T2.NAME, T2.TYPE_CD, T4.LINE_NUM  HAVING COUNT(T4.LINE_NUM)>1",
+          "XMLPath": "/SiebelMessage/EAIMessage/ListOfFCDQ_spcActivity_spcTemplate/Activity_spcTemplate/_sblesc_und_undPROPERTIES_und_und/Name[string()=ddkey1]/../Type[string()=ddkey2]",
+          "Keys": {
+            "key1": "TMPL_NAME",
+            "key2": "TYPE_CD"
+          }
+        }
+      ]
+    },
+	"Web Service - Inbound": {
+	  "fname": "Web_Service_-_Inbound.xml",
+	  "preimpsql": {
+		"PORTS_WS": "DELETE FROM $TABLEOWNER.S_WS_PORT WHERE WEB_SERVICE_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_WS_WEBSERVICE)",
+		"PORT_PTYPE": "DELETE FROM $TABLEOWNER.S_WS_PORT WHERE WS_PORT_TYPE_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_WS_PORT_TYPE)",
+		"PTYPE_PORT": "DELETE FROM $TABLEOWNER.S_WS_PORT_TYPE WHERE ROW_ID NOT IN (SELECT WS_PORT_TYPE_ID FROM $TABLEOWNER.S_WS_PORT)",
+		"POP_PORT": "DELETE FROM $TABLEOWNER.S_WS_PORT_OPER WHERE PORT_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_WS_PORT)",
+		"POP_OP": "DELETE FROM $TABLEOWNER.S_WS_PORT_OPER WHERE OPERATION_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_WS_OPERATION)",
+		"OP_PTYPE": "DELETE FROM $TABLEOWNER.S_WS_OPERATION WHERE PORT_TYPE_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_WS_PORT_TYPE)"
+	  }
+	},
+	"Web Service - Outbound": {
+	  "fname": "Web_Service_-_Outbound.xml",
+	  "preimpsql": {
+		"PORTS_WS": "DELETE FROM $TABLEOWNER.S_WS_PORT WHERE WEB_SERVICE_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_WS_WEBSERVICE)",
+		"PORT_PTYPE": "DELETE FROM $TABLEOWNER.S_WS_PORT WHERE WS_PORT_TYPE_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_WS_PORT_TYPE)",
+		"PTYPE_PORT": "DELETE FROM $TABLEOWNER.S_WS_PORT_TYPE WHERE ROW_ID NOT IN (SELECT WS_PORT_TYPE_ID FROM $TABLEOWNER.S_WS_PORT)",
+		"POP_PORT": "DELETE FROM $TABLEOWNER.S_WS_PORT_OPER WHERE PORT_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_WS_PORT)",
+		"POP_OP": "DELETE FROM $TABLEOWNER.S_WS_PORT_OPER WHERE OPERATION_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_WS_OPERATION)",
+		"OP_PTYPE": "DELETE FROM $TABLEOWNER.S_WS_OPERATION WHERE PORT_TYPE_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_WS_PORT_TYPE)"
+	  }
+    },
+    "Catalog Categories": {
+      "fname": "DY_Catalog_Categories.xml",
+      "ValidSQL":"SELECT * FROM $TABLEOWNER.S_CTLG_CAT WHERE CTLG_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_CTLG)"
+    },
+    "Assignment Rule": {
+      "fname": "Assignment_Rule.xml"
+    },
+    "State Model Test": {
+      "fname": "StateModel.xml"
+    },   
+	"Views": {
+      "fname": "View.xml",
+      "nodes": [
+        {
+          "SQL": "SELECT DISTINCT NAME FROM $TABLEOWNER.S_APP_VIEW WHERE NAME NOT IN (SELECT T1.NAME FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_VIEW WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_VIEW WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1 WHERE T1.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N')",
+          "XMLPath": "/SiebelMessage/EAIMessage/ListOfUDA_spcView_spcAccess/Feature_spcAccess/_sblesc_und_undPROPERTIES_und_und/Name[string()=ddkey1]",
+          "Keys": {
+            "key1": "NAME"
+          }
+        }
+      ],
+      "preimpsql": {
+        "DELETE_APP_VIEW": "DELETE FROM $TABLEOWNER.S_APP_VIEW WHERE ROW_ID IN (SELECT VIEW_ID FROM $TABLEOWNER.S_APP_VIEW_RESP AVP, SIEBEL.S_RESP RSP WHERE AVP.RESP_ID =RSP.ROW_ID) AND ROW_ID NOT IN (SELECT VIEW_ID FROM $TABLEOWNER.S_APP_VIEW_RESP AVP, $TABLEOWNER.S_RESP RSP WHERE AVP.RESP_ID =RSP.ROW_ID )"
+      }
+    },
+    "Responsibilities": {
+      "fname": "Responsibility.xml",
+      "nodes": [
+        {
+          "SQL": "SELECT DISTINCT RSP.NAME AS RESP_NAME, AV.NAME AS VIEW_NAME FROM $TABLEOWNER.S_APP_VIEW_RESP AVR, $TABLEOWNER.S_APP_VIEW AV, $TABLEOWNER.S_RESP RSP WHERE (AVR.VIEW_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_APP_VIEW WHERE NAME NOT IN (SELECT T1.NAME FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_VIEW WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_VIEW WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1 WHERE T1.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N'))) AND AVR.VIEW_ID=AV.ROW_ID AND AVR.RESP_ID=RSP.ROW_ID",
+          "XMLPath": "/SiebelMessage/EAIMessage/ListOfUDA_spcResponsibilities/Responsibility/_sblesc_und_undPROPERTIES_und_und/Name[string()=ddkey1]/../../ListOfFeature_spcAccess/Feature_spcAccess/_sblesc_und_undPROPERTIES_und_und/Name[string()=ddkey2]",
+          "Keys": {
+            "key1": "RESP_NAME",
+            "key2": "VIEW_NAME"
+          }
+        },
+        {
+          "SQL": "SELECT DISTINCT RSP.NAME AS RESP_NAME, AV.NAME AS VIEW_NAME FROM $TABLEOWNER.S_APP_VIEW_RESP AVR, $TABLEOWNER.S_APP_VIEW AV, $TABLEOWNER.S_RESP RSP WHERE (AVR.VIEW_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_APP_VIEW WHERE NAME NOT IN (SELECT T1.NAME FROM (SELECT TBL1.* FROM (SELECT * FROM $TABLEOWNER.S_VIEW WHERE ($WORKSPACE_QUERY)) TBL1 LEFT OUTER JOIN (SELECT * FROM $TABLEOWNER.S_VIEW WHERE ($WORKSPACE_QUERY)) TBL2 ON (TBL1.WS_SRC_ID = TBL2.WS_SRC_ID AND TBL1.WS_OBJ_VER < TBL2.WS_OBJ_VER) WHERE TBL2.WS_SRC_ID IS NULL AND TBL1.WS_DELETE_FLG = 'N') T1 WHERE T1.REPOSITORY_ID = $REPOSITORY_ID AND T1.INACTIVE_FLG='N'))) AND AVR.VIEW_ID=AV.ROW_ID AND AVR.RESP_ID=RSP.ROW_ID",
+          "XMLPath": "/SiebelMessage/EAIMessage/ListOfUDA_spcResponsibilities/Responsibility/_sblesc_und_undPROPERTIES_und_und/Name[string()=ddkey1]/../../ListOfResponsibility_undFeature_spcAccess/Responsibility_undFeature_spcAccess/_sblesc_und_undPROPERTIES_und_und/View[string()=ddkey2]",
+          "Keys": {
+            "key1": "RESP_NAME",
+            "key2": "VIEW_NAME"
+          }
+        }
+      ]
+    },
+    "Access Controlled Task Test": {
+      "fname": "Access_Controlled_Task.xml",
+      "nodes": [
+        {
+          "SQL": "SELECT DISTINCT AR.NAME AS TASK_NAME FROM $TABLEOWNER.S_AC_RSRC_RESP ARR, $TABLEOWNER.S_AC_RSRC AR, $TABLEOWNER.S_RESP RSP WHERE ARR.RSRC_ID=AR.ROW_ID AND ARR.RESP_ID=RSP.ROW_ID  AND ARR.RSRC_ID NOT IN (SELECT ROW_ID FROM $TABLEOWNER.S_AC_RSRC WHERE TYPE_CD='TASK' AND NAME IN (SELECT TBL2.TASK_NAME FROM $TABLEOWNER.S_TU_TASK TBL2, (SELECT TASK_NAME, MAX(VERSION) MAXVER FROM $TABLEOWNER.S_TU_TASK WHERE REPOSITORY_ID= $REPOSITORY_ID AND INACTIVE_FLG='N' GROUP BY TASK_NAME) TBL1 WHERE TBL1.TASK_NAME = TBL2.TASK_NAME AND TBL1.MAXVER = TBL2.VERSION AND TBL2.STATUS_CD='COMPLETED' AND TBL2.REPOSITORY_ID= $REPOSITORY_ID))",
+          "XMLPath": "/SiebelMessage/EAIMessage/ListOfUDA_spcAccess_spcControlled_spcTask/ACT/_sblesc_und_undPROPERTIES_und_und/Name[string()=ddkey1]",
+          "Keys": {
+            "key1": "TASK_NAME"
+          }
+        }
+      ],
+      "preimpsql": {
+        "DELETE_RSRC_RESP": "DELETE FROM $TABLEOWNER.S_AC_RSRC_RESP WHERE RESP_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_RESP) AND RSRC_ID IN (SELECT ROW_ID FROM $TABLEOWNER.S_AC_RSRC WHERE TYPE_CD='TASK')",
+        "DELETE_RSRC": "DELETE FROM $TABLEOWNER.S_AC_RSRC WHERE TYPE_CD='TASK'"
+      }
+    },
+    "View Link": {
+      "fname": "DY_ADM_View_Link.xml"
+    },
+    "Catalogs": {
+      "fname": "ProductCatalog.xml"
+    },
+    "Product Line": {
+      "fname": "Product_Line.xml"
+    },
+    "Runtime Events Test": {
+      "fname": "Personalization_-_Events.xml"
+    },
+    "Symbolic URL Test": {
+     "fname": "Symbolic_URL.xml"
+    },
+    "Sales Method": {
+     "fname": "DY_Sales_Method.xml",
+     "ValidSQL":"SELECT * FROM $TABLEOWNER.S_SALES_METHOD WHERE LAST_UPD>SYSDATE-365"
+    },
+    "Comm Templates": {
+      "fname": "ADM_Comm_Package.xml"
+    },
+	"Proposal Templates Test": {
+      "fname": "Proposal_Template.xml"
+    },
+	"Bookmarks": {
+      "fname": "DY_Proposal_Bookmarks.xml",
+	  "ValidSQL":"SELECT NAME FROM $TABLEOWNER.S_VARSUB_CONTXT"
+	  }
+}
+}
