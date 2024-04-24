@@ -1,0 +1,130 @@
+parameters:
+  - name: Target_Env
+    displayName: Target_Env
+    type: string
+    default: DEV
+  - name: Sanity_Browser
+    displayName: Sanity_Browser
+    type: string
+    default: Desktop_Chrome
+  - name: Mastersuite_IDs
+    displayName: Mastersuite_IDs
+    type: string
+    default: NIL
+  - name: Jobname
+    displayName: Jobname
+    type: string
+    default: Sanity
+  - name: agentpool
+    displayName: agentpool
+    type: string
+    default: 'DY-SIEBEL-DEVOPS'
+  - name: Notify
+    displayName: Notify
+    type: string
+    default: true
+jobs:
+  - job: Sanity
+    pool: ${{parameters.agentpool}}
+    variables:
+      - group: dy-ado-siebelvar-windows
+    steps:
+      - checkout: none
+      - powershell: |
+          $runid="$(Build.BuildId)"
+          write-host $runid RUNID
+          $mycmd= "C:\dymensions\pipelinesta.exe orchestrateTestExecutionAzure 'C:\dymensions\config2.json' ${{parameters.Target_Env}} $(${{parameters.Target_Env}}_DB_username) $(${{parameters.Target_Env}}_DB_password) '$(azure_user)' $(azure_token) ${{parameters.Sanity_Browser}} '${{parameters.Mastersuite_IDs}}' $runid"
+          #$mycmd= "$(util_sta) orchestrateTestExecutionAzure $(configfile_sta) ${{parameters.Target_Env}} $(${{parameters.Target_Env}}_DB_username) $(${{parameters.Target_Env}}_DB_password) '$(azure_user)' $(azure_token) ${{parameters.Sanity_Browser}} '${{parameters.Mastersuite_IDs}}' $runid"
+
+          write-host $mycmd
+          Invoke-Expression $mycmd | Tee-Object -Variable output
+          $patternarray = "<failedtests>(.*?)<failedtests>" 
+          $resultarray = [regex]::matches($output, $patternarray)
+          $finalarray=""
+          foreach($res in $resultarray){
+            #write-host "Passres $passres"
+            $finalarray += $res.Groups[1].Value + ","
+          }
+          #$finalarray = $resultarray -join ','
+          write-host FAILARRAY $finalarray
+
+          $patternpass = "<passcount>(.*?)<passcount>" 
+          $resultpass = [regex]::matches($output, $patternpass)
+          $passsum=0
+          foreach($passres in $resultpass){
+            #write-host "Passres $passres"
+            $passsum += [int]$passres.Groups[1].Value
+          }
+          write-host "SumPass: $passsum"
+
+
+          $patternfail = "<failcount>(.*?)<failcount>" 
+          $resultfail = [regex]::matches($output, $patternfail)
+          $failsum=0
+          foreach($failres in $resultfail){
+            #write-host "failres $failres"
+            $failsum += [int]$failres.Groups[1].Value
+          }
+          write-host "SumFail: $failsum"
+          
+          if($passsum -eq 0 -and $failsum -eq 0){
+            $resultpercent = 100
+          } else {
+            $resultpercent = ($passsum / ($passsum + $failsum)) * 100
+          }
+
+          $workitemnum = "<workitem>(.*?)<workitem>" 
+          $resultworkitem = [regex]::matches($output, $workitemnum)
+          $linklist=""
+          foreach($workit in $resultworkitem){
+            write-host "workit $workit"
+            $linklist += "<a href=https://dev.azure.com/DymTestOrg/DymTestPrg/_workitems/edit/" + $workit.Groups[1].Value + ">Work Item $workit</a>" + ","
+          }
+          #$finalarray = $resultarray -join ','
+          write-host linklist $linklist
+
+          
+          $resultlink="https://dev.azure.com/DymTestOrg/DymTestPrg/_workitems/edit/$resultworkitem"
+          if(($resultpercent -ge 90) -and ($resultpercent -le 100)) 
+            {
+              $passcolor="green"
+            }
+          elseif(($resultpercent -ge 75) -and ($resultpercent -lt 90))
+            {
+              $passcolor="Yellow"
+            }
+          elseif(($resultpercent -ge 60) -and ($resultpercent -lt 75))
+            {
+              $passcolor="orange"
+            }
+          elseif($resultpercent -lt 60 )
+            {
+              $passcolor="red"
+            }
+          write-host Passes $resultpass  
+          write-host Failures $resultfail
+          write-host Failed Tests $resultarray
+          write-host Pass Percentage $resultpercent
+          write-host passcolor $passcolor
+          write-host  resultlink $resultlink
+          write-host  resultworkitem $resultworkitem
+          $sanityreqbody= '{"text": "'+ '<b>'+ 'Subject:' + '</b>' + 'Sanity Test is completed on '  + "${{parameters.Target_Env}}" + '<br>' + '<b>'+ ' Passed Tests: ' + '</b>'+ $passsum + '<br>' +  '<b>'+ ' Pass Percentage: ' + '</b>'+ "<strong style=color:$passcolor;> $resultpercent % </strong>"  + '<br>' +'<b>'+ ' Failed Tests:'  + '</b>' + $failsum +'<b>'+ ' Failed Test IDs :'  + '</b>' + $resultarray  + '<br>' + '<b>'+ ' Link to WorkItem :'  + '</b>' + $linklist  +  '"}' 
+          $webhookuri= "$(boturi_sta)"
+          $uri= "$webhookuri"
+          #write-host $sanityreqbody
+          echo "Invoke-RestMethod -Method POST -ContentType 'Application/Json' -Body $sanityreqbody -Uri $uri"
+          #$Result= Invoke-RestMethod -Method POST -ContentType 'Application/Json' -Body $sanityreqbody -Uri $uri
+          write-host $Result
+          echo "##vso[task.setvariable variable=sanityreqbody;isoutput=true]$sanityreqbody"
+        name: Sanityjob
+  - template: /Windows/jobs/notifications.yml@dyadotemplates
+    parameters: 
+      Notify: ${{parameters.Notify}}
+      agentpool: "$(Agent)"
+      Requestbody: $[dependencies.Sanity.outputs['Sanityjob.sanityreqbody']]
+      DependsOn: "Sanity"
+
+ 
+
+
+

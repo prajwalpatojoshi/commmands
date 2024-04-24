@@ -1,0 +1,61 @@
+resources:
+  repositories:
+  - repository: dyadotemplates
+    type: git
+    ref: refs/heads/sanity_test
+    name: DymTestPrg/dy-ado-template
+parameters:
+- name: Target_Env
+  displayName: Target_Env
+  type: string
+  default: DEV
+- name: Sanity_Browser
+  displayName: Sanity_Browser
+  type: string
+  default: Desktop_Chrome
+- name: Mastersuite_IDs
+  displayName: Mastersuite_IDs
+  type: string
+  default: NIL
+- name: Notify
+  displayName: Notify
+  type: string
+  default: true
+trigger:
+  enabled: false
+variables:
+- group: DY_WINDOWS_SIEBEL_VARIABLES
+stages:
+- stage: Sanity
+  displayName: Sanity
+  jobs:
+  - job: Sanity
+    pool:
+      name: $(Agent)
+    variables:
+    - group: DY_WINDOWS_SIEBEL_VARIABLES
+    steps:
+    - task: 6d15af64-176c-496d-b583-fd2ae21d4df4@1
+      condition: false
+      inputs:
+        repository: none
+    - task: PowerShell@2
+      name: Sanityjob
+      inputs:
+        targetType: inline
+        script: "$runid=\"$(Build.BuildId)\"\nwrite-host $runid RUNID\n$mycmd= \"C:\\dymensions\\pipelinesta.exe orchestrateTestExecutionAzure 'C:\\dymensions\\config2.json' DEV $(DY_DEV_DB_USERNAME) $(DY_DEV_DB_PASSWORD) '$(DY_AZURE_USERNAME)' $(DY_AZURE_TOKEN) Desktop_Chrome 'NIL' $runid\"\n#$mycmd= \"$(util_sta) orchestrateTestExecutionAzure $(configfile_sta) DEV $(DEV_DB_username) $(DEV_DB_password) '$(azure_user)' $(azure_token) Desktop_Chrome 'NIL' $runid\"\n\nwrite-host $mycmd\nInvoke-Expression $mycmd | Tee-Object -Variable output\n$patternarray = \"<failedtests>(.*?)<failedtests>\" \n$resultarray = [regex]::matches($output, $patternarray)\n$finalarray=\"\"\nforeach($res in $resultarray){\n  #write-host \"Passres $passres\"\n  $finalarray += $res.Groups[1].Value + \",\"\n}\n#$finalarray = $resultarray -join ','\nwrite-host FAILARRAY $finalarray\n\n$patternpass = \"<passcount>(.*?)<passcount>\" \n$resultpass = [regex]::matches($output, $patternpass)\n$passsum=0\nforeach($passres in $resultpass){\n  #write-host \"Passres $passres\"\n  $passsum += [int]$passres.Groups[1].Value\n}\nwrite-host \"SumPass: $passsum\"\n\n\n$patternfail = \"<failcount>(.*?)<failcount>\" \n$resultfail = [regex]::matches($output, $patternfail)\n$failsum=0\nforeach($failres in $resultfail){\n  #write-host \"failres $failres\"\n  $failsum += [int]$failres.Groups[1].Value\n}\nwrite-host \"SumFail: $failsum\"\n\nif($passsum -eq 0 -and $failsum -eq 0){\n  $resultpercent = 0\n} else {\n  $resultpercent = ($passsum / ($passsum + $failsum)) * 100\n}\n\n$workitemnum = \"<workitem>(.*?)<workitem>\" \n$resultworkitem = [regex]::matches($output, $workitemnum)\n$linklist=\"\"\nforeach($workit in $resultworkitem){\n  write-host \"workit $workit\"\n  $linklist += \"<a href=https://dev.azure.com/DymTestOrg_TRIAL/DymTestPrg/_workitems/edit/\" + $workit.Groups[1].Value + \">Work Item $workit</a>\" + \",\"\n}\n#$finalarray = $resultarray -join ','\nwrite-host linklist $linklist\n\n\n$resultlink=\"https://dev.azure.com/DymTestOrg/DymTestPrg_TRIAL/_workitems/edit/$resultworkitem\"\nif(($resultpercent -ge 90) -and ($resultpercent -le 100)) \n  {\n    $passcolor=\"green\"\n  }\nelseif(($resultpercent -ge 75) -and ($resultpercent -lt 90))\n  {\n    $passcolor=\"Yellow\"\n  }\nelseif(($resultpercent -ge 60) -and ($resultpercent -lt 75))\n  {\n    $passcolor=\"orange\"\n  }\nelseif($resultpercent -lt 60 )\n  {\n    $passcolor=\"red\"\n  }\nwrite-host Passes $resultpass  \nwrite-host Failures $resultfail\nwrite-host Failed Tests $resultarray\nwrite-host Pass Percentage $resultpercent\nwrite-host passcolor $passcolor\nwrite-host  resultlink $resultlink\nwrite-host  resultworkitem $resultworkitem\n$sanityreqbody= '{\"text\": \"'+ '<b>'+ 'Subject:' + '</b>' + 'Sanity Test is completed on '  + \"DEV\" + '<br>' + '<b>'+ ' Passed Tests: ' + '</b>'+ $passsum + '<br>' +  '<b>'+ ' Pass Percentage: ' + '</b>'+ \"<strong style=color:$passcolor;> $resultpercent % </strong>\"  + '<br>' +'<b>'+ ' Failed Tests:'  + '</b>' + $failsum +'<b>'+ ' Failed Test IDs :'  + '</b>' + $resultarray  + '<br>' + '<b>'+ ' Link to WorkItem :'  + '</b>' + $linklist  +  '\"}' \n$webhookuri= \"$(DY_BOTURI_STA)\"\n$uri= \"$webhookuri\"\nwrite-host $sanityreqbody\n#echo \"Invoke-RestMethod -Method POST -ContentType 'Application/Json' -Body $sanityreqbody -Uri $uri\"\n#$Result= Invoke-RestMethod -Method POST -ContentType 'Application/Json' -Body $sanityreqbody -Uri $uri\nwrite-host $Result\necho \"##vso[task.setvariable variable=sanityreqbody;isoutput=true]$sanityreqbody\"\n"
+  - job: Notification
+    pool:
+      name: $(Agent)
+    dependsOn:
+    - Sanity
+    condition: eq('true', 'true')
+    variables:
+    - name: 'Requestbody'
+      value: $[dependencies.Sanity.outputs['Sanityjob.sanityreqbody']]
+    steps:
+    - task: PowerShell@2
+      inputs:
+        targetType: inline
+        script: "$body= '$(Requestbody)' \n$webhookuri= \"$(DY_AZURE_BOT)\"\nif ($body -contains \"Sanity\"){\n  write-host \"Sanity Notification\"\n  $webhookuri= \"$(DY_BOTURI_STA)\"\n}\n$uri= \"$webhookuri\"\nwrite-host $body\necho \"Invoke-RestMethod -Method POST -ContentType 'Application/Json' -Body $body -Uri $uri\"\n$Result= Invoke-RestMethod -Method POST -ContentType 'Application/Json' -Body \"$body\" -Uri $uri\nwrite-host $Result"
+
