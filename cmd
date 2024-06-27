@@ -13,3 +13,15 @@ D:\EMPLOYEES\Prajwal_Patojoshi\sonar-scanner-5.0.1.3006-windows\bin\sonar-scanne
 D:\Dymensions\pipeline.exe getactiveworkspace D:\Dymensions\config_dymensions_win.json DEV "11" 290 SIEBEL sadmin Dymensions "int_dy_inspire_dev"
 
 
+PRODUCT NAMES    
+"Redwood UX for Siebel CRM": "Siebel UI Framework",
+    "Modern Siebel CRM Observability - Monitoring and Log Analytics": "Siebel Core - Server Framework",
+    "CTMS Mobile SmartScript": "Siebel Apps - Clinical",
+    "Web Tools - Applet Format Toolbar": "Siebel UI Framework",
+    "UCM using Event Driven Architecture": "Siebel Apps - UCM"
+CATEGORY NAMES
+    "Redwood UX for Siebel CRM": "Siebel UI Framework",
+    "Modern Siebel CRM Observability - Monitoring and Log Analytics": "Siebel Core - Server Framework",
+    "CTMS Mobile SmartScript": "Siebel Apps - Clinical",
+    "Web Tools - Applet Format Toolbar": "Siebel UI Framework",
+    "UCM using Event Driven Architecture": "Siebel Apps - UCM"
