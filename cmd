@@ -25,3 +25,17 @@ CATEGORY NAMES
     "CTMS Mobile SmartScript": "Siebel Apps - Clinical",
     "Web Tools - Applet Format Toolbar": "Siebel UI Framework",
     "UCM using Event Driven Architecture": "Siebel Apps - UCM"
+
+
+{
+  "getActiveWorkspaceDetailsWithName": "getActiveWorkspaceGitBranch",
+  "exportsifwrapper": "getActiveWorkspaceGitBranch",
+  "uploadtobitbucket": "getActiveWorkspaceGitBranch",
+  "getactiveworkspace": "getActiveWorkspaceGitBranch",
+  "deliverworkspacewithname": "DeliverMergeWorkspaceGit",
+  "CreateAZPullRequestMerge": "DeliverMergeWorkspaceGit",
+  "checkifazgitbranchExist": "getActiveWorkspaceGitBranch",
+  "abandonPR": "PostCompletion",
+  "mergestreamandoverwrite":"DeliverMergeWorkspaceGit",
+  "createAzPullRequest": "PreApproval"
+}
