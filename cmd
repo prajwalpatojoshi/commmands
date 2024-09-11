@@ -39,3 +39,6 @@ CATEGORY NAMES
   "mergestreamandoverwrite":"DeliverMergeWorkspaceGit",
   "createAzPullRequest": "PreApproval"
 }
+
+
+{"status":"error","error":"Repository must be upgraded to use this feature"}HTTPCODE:200
