@@ -42,3 +42,6 @@ CATEGORY NAMES
 
 
 {"status":"error","error":"Repository must be upgraded to use this feature"}HTTPCODE:200
+
+
+source /home/siebel/.bashrc && source /home/siebel/ses/siebsrvr/siebenv.sh && /home/siebel/ses/siebsrvr/bin/RRCleanup -t SIEBEL -u $sadminuser -p $sadminpassword -r \"Migrated Repository\" -o siebel_DSN  -s /home/siebel/ses/siebsrvr -b B -d Oracle
